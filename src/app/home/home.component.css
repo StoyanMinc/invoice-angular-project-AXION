@@ -68,22 +68,32 @@
     height: 350px;
 }
 
-.last-income-invoices {
+/* .last-income-invoices {
     float: left;
     margin: 0 20px 0 20px;
-    width: calc(50% - 40px);
+    width: calc(50% - 42px);
     height: 100%;
     background-color: white;
+    border: 1px solid gray;
 }
 
 .last-output-invoices {
-    float: right;
+    float: left;
     margin: 0 20px 0 20px;
-    width: calc(50% - 40px);
+    width: calc(50% - 42px);
     height: 100%;
     background-color: white;
-}
+    border: 1px solid gray;
+} */
 
+.last-invoices-holder {
+    float: left;
+    margin: 0 20px 0 20px;
+    width: calc(50% - 42px);
+    height: 100%;
+    background-color: white;
+    border: 1px solid  #EBEBEB;
+}
 .last-invoices-title {
     float: left;
     width: calc(100% - 15px);
@@ -112,11 +122,11 @@ table td {
 }
 
 table thead td {
-    font-weight: bold;
+    font-weight: 600;
 }
 
 table tbody  {
-    font-weight: 600;
+    font-weight: 500;
 }
 
 table tbody td {
