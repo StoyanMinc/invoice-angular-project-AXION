@@ -1,0 +1,85 @@
+header, .subheader {
+    float: left;
+    width: 100%;
+    height: 60px;
+    border-bottom: 2px solid #EBEBEB;
+    background-color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+header nav {
+    float: left;
+    line-height: 30px;
+}
+
+header nav ul li{
+    display: inline-block;
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.active {
+    color: #21B2F6;
+}
+
+header .user {
+    float: right;
+    margin-right: 10px;
+    line-height: 60px;
+    font-size: 14px;
+}
+
+.bell{
+    float: left;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-top: 12px;
+    margin-right: 25px;
+    background-image: url('../assets/notification-icon.svg');
+    background-size: contain;
+    background-position: center;
+    position:relative;
+}
+
+.bell.has-notification::before {
+    content: "";
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background: red;
+}
+
+.user-first-letter {
+    float: left;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 40px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    background-color: #F94A4F;
+    border-radius: 100%;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.subheader {
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.subheader ul li {
+    display: inline-block;
+    margin-left: 20px;
+}

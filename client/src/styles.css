@@ -1,0 +1,164 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: #f1f1f1;
+    font-family: 'Montserrat';
+}
+
+.home-container {
+    float: left;
+    margin-top: 30px;
+    width: 100%;
+    height: 100%;
+}
+
+.invoices {
+    float: left;
+    margin: 0 10px;
+    width: calc(100% - 20px);
+    height: 330px;
+}
+
+.holder {
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: calc(25% - 25px);
+    background-color: white;
+    height: 120px;
+}
+
+.title {
+    float: left;
+    text-transform: uppercase;
+    margin: 10px 0 0 10px;
+    font-weight: bold;
+    color: gray;
+}
+
+.red-arrow, .green-arrow {
+    float: left;
+    margin: 10px;
+    width: 15px;
+    height: 15px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat
+}
+
+.green-arrow {
+    background-image: url('./assets/going-positive-icon.svg');
+}
+
+.red-arrow {
+    background-image: url('./assets/going-negative-icon.svg');
+}
+
+.holder .values {
+    float: left;
+    width: 100%;
+    color: #607DFF;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 20px 0 0 20px;
+}
+
+.holder .values span {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.last-invoices {
+    float: left;
+    margin: 0 10px;
+    width: calc(100% - 20px);
+    height: 350px;
+}
+
+.last-invoices-holder {
+    float: left;
+    margin: 0 20px 0 20px;
+    width: calc(50% - 42px);
+    height: 100%;
+    background-color: white;
+    border: 1px solid  #EBEBEB;
+}
+.last-invoices-title {
+    float: left;
+    width: calc(100% - 15px);
+    color: gray;
+    font-weight: bold;
+    margin: 15px 0 0 15px;
+}
+
+.last-invoices table {
+    float: left;
+    margin: 15px;
+    border: 1px solid #EBEBEB;
+    border-collapse: collapse;
+    width: calc(100% - 30px);
+    height: calc(100% - 60px);
+    display:block;
+}
+
+.last-invoices table thead,
+.invoice-table table tbody td  {
+    background-color: #F9FBFA;
+}
+
+.last-invoices table td,
+.invoice-table table tbody td  {
+    padding: 10px 20px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.last-invoices table thead td,
+.invoice-table table tbody td  {
+    font-weight: 600;
+}
+
+.last-invoices table tbody,
+.invoice-table table tbody td   {
+    font-weight: 500;
+}
+
+.last-invoices table tbody td,
+.invoice-table table tbody td {
+    border: 1px solid #EBEBEB;
+}
+
+.last-invoices table .paid,
+.invoice-table table .paid {
+    background-color: #4FC11F;
+}
+
+.last-invoices table .unpaid,
+.invoice-table table .unpaid {
+    background-color: #FAA752;
+}
+
+.last-invoices table .table-paid-info {
+    color: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.col-1 {width: calc(8.33% - 2px) !important;}
+.col-2 {width: calc(16.66% - 2px) !important;}
+.col-3 {width: calc(25% - 2px) !important;}
+.col-4 {width: calc(33.33% - 2px) !important;}
+.col-5 {width: calc(41.66% - 2px) !important;}
+.col-6 {width: calc(50% - 2px) !important;}
+.col-7 {width: calc(58.33% - 2px) !important;}
+.col-8 {width: calc(66.66% - 2px) !important;}
+.col-9 {width: calc(75% - 2px) !important;}
+.col-10 {width: calc(83.33% - 2px) !important;}
+.col-11 {width: calc(91.66% - 2px) !important;}
+.col-12 {width: calc(100% - 2px) !important;}
+

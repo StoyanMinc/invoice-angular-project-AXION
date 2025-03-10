@@ -1,0 +1,125 @@
+<div class="page-container">
+
+    <div class="add-sales-container">
+        <div class="add-sales-header">
+            <h4>Добавяне на фактура (123123123123)</h4>
+        </div>
+
+        <div class="add-sales-inputs-container">
+            <div class="first-row">
+
+                <div class="input-container col-3">
+                    <label for="client">Клиент</label>
+                    <input class="invoice-input" type="text" name="client" id="client">
+                </div>
+                <div class="input-container col-3">
+                    <label for="mol">МОЛ</label>
+                    <input class="invoice-input" type="text" name="mol" id="mol">
+                </div>
+                <div class="input-container col-2">
+                    <label for="">Тип на документ</label>
+                    <select class="invoice-input" name="documentType" id="documentType">
+                        <option value="фактура">Фактура</option>
+                        <option value="проформа">Проформа</option>
+                    </select>
+                </div>
+                <div class="input-container col-2">
+                    <label for="invoiceNumber">Фактура номер</label>
+                    <input class="invoice-input" type="number" name="invoiceNumber" id="invoiceNumber">
+                </div>
+                <div class="input-container col-2">
+                    <label for="invoiceDate">Дата на фактура</label>
+                    <input class="invoice-input" type="text" name="invoiceDate" id="invoiceDate">
+                </div>
+            </div>
+            <div class="second-row">
+                <div class="input-container col-3">
+                    <label for="paymentTerm">Срок на плащане</label>
+                    <select class="invoice-input" name="paymentTerm" id="paymentTerm">
+                        <option value="15">15 дни</option>
+                        <option value="30">30 дни</option>
+                    </select>
+                </div>
+                <div class="input-container col-3">
+                    <label for="paymentType">Начин на плащане</label>
+                    <select class="invoice-input" name="paymentType" id="paymentType">
+                        <option value="Банков превод">Банков превод</option>
+                        <option value="В брой">В брой</option>
+                    </select>
+                </div>
+                <div class="input-container col-3">
+                    <label for="bankChoise">Избор на банка</label>
+                    <select class="invoice-input" name="bankChoise" id="bankChoise">
+                        <option value="ДСК">ДСК</option>
+                        <option value="ОББ">ОББ</option>
+                        <option value="УниКредит">УниКредит</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="add-invoice-table-container">
+            <table class="add-invoice-table">
+                <thead>
+                    <tr>
+                        <th class="table-n td-n">N</th>
+                        <th>Описание на стока/услуга</th>
+                        <th>Мярка</th>
+                        <th>К-во</th>
+                        <th>Ед.цена</th>
+                        <th>T.O.%</th>
+                        <th class="table-n">Стойност</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="table-n">1</td>
+                        <td class="long-table-td">
+                            <input type="text" />
+                        </td>
+                        <td class="middle-table-td">
+                            <select name="count">
+                                <option value="count">бр</option>
+                                <option value="hh">ч.ч</option>
+                            </select>
+                        </td>
+                        <td class="short-table-td">
+                            <input type="number" placeholder="0" />
+                        </td>
+                        <td class="short-table-td">
+                            <input type="number" placeholder="0" />
+                        </td>
+                        <td class="short-table-td">
+                            <input type="number" placeholder="0" />
+                        </td>
+                        <td class="table-n td-values">
+                            0.00
+                        </td>
+                    </tr>
+                    <tr>
+                        <td [attr.colspan]="5"></td>
+                        <td class="table-n">Субтотал</td>
+                        <td class="table-n">0.00</td>
+                    </tr>
+                    <tr>
+                        <td [attr.colspan]="5"></td>
+                        <td class="table-n">ДДС 20%</td>
+                        <td class="table-n">0.00</td>
+                    </tr>
+                    <tr>
+                        <td [attr.colspan]="5"></td>
+                        <td class="table-n">Общо ДДС</td>
+                        <td class="table-n">0.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    
+    <div class='add-invoice-footer'>
+        <button class="button-go-back">Назад</button>
+        <button class="action-button">Добавяне и печат</button>
+        <button class="action-button add-invoice-btn">Добавяне</button>
+    </div>
+</div>

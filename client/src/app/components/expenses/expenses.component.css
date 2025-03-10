@@ -1,0 +1,97 @@
+.expenses-container {
+    float: left;
+    width: calc(100% - 60px);
+    margin-top: 60px;
+    padding: 30px;
+}
+
+.invoice-table-container {
+    float: left;
+    width: calc(100% - 30px);
+    border: 1px solid hsl(0, 4%, 85%);
+    /* margin-left: 15px; */
+    background-color: #fff;
+    padding: 0 15px 15px;
+}
+
+.invoice-table-container-header {
+    float: left;
+    width: 100%;
+}
+
+.invoice-table-container-header h4 {
+    float: left;
+}
+
+.invoice-table-container-header .table-options {
+    float: right;
+    margin-top: 15px;
+}
+
+.search-invoice {
+    width: 200px;
+    height: 25px;
+    border-radius: 6px;
+    border: 1px solid hwb(0 64% 35%);;
+    background-image: url(../../../assets/magnifying-glass-solid.svg);
+    background-repeat: no-repeat;
+    background-size: 19px;
+    background-position: left;
+    background-position-x: 7px;
+    text-align: left;
+    padding-left: 30px;
+}
+
+.add-invoice-btn, .reference-invoice-btn {
+    padding: 6px 10px;
+    background-color: #05A8F5;
+    color: white;
+    border-radius: 3px;
+    border: none;
+    margin-left: 10px;
+}
+
+.add-invoice-btn, .reference-invoice-btn {
+    cursor: pointer;
+}
+
+.invoice-table {
+    float: left;
+    width: 100%;
+    border: 1px solid hsl(0, 4%, 85%);
+}
+
+.invoice-table table {
+    float: left;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table thead{
+    background-color: #F9FBFA;
+    color: #505050;
+}
+
+table thead th {
+    padding: 10px;
+    font-size: 12px;
+}
+
+.invoice-table-footer {
+    float: left;
+    width: calc(100% - 20px);
+    padding: 10px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #F9FBFA;
+    border: 1px solid hsl(0, 4%, 85%);
+}
+
+.total-invoices-table-span {
+    float: left;
+}
+
+.total-value-table-span {
+    float: right;
+    margin-right: 100px;
+} 

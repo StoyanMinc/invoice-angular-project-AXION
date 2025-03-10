@@ -1,0 +1,30 @@
+<header>
+  <nav>
+    <ul>
+      <li routerLink="/home" routerLinkActive="active">Начало</li>
+      <li routerLink="/documents/sales" routerLinkActive="active">Документи</li>
+      <li routerLink="/clients" routerLinkActive="active">Контрагенти</li>
+      <li>Склад</li>
+      <li>Магазин</li>
+      <li>Служители</li>
+      <li>GPS система</li>
+    </ul>
+  </nav>
+  <div class="user">
+    <i class="bell"></i>
+    <div class="user-first-letter">T</div>
+    <span>Тодор Тодоров</span>
+  </div>
+  <div class="subheader" *ngIf="ReturnUrl() == 'documents'">
+    <ul *ngIf=" ReturnUrl() == 'documents'">
+      <li routerLink="/documents/sales" routerLinkActive="active">Продажби</li>
+      <li routerLink="/documents/expenses">Разходи</li>
+      <li>Автоматични таксувания</li>
+      <li>Оферти</li>
+      <li>Товарителници</li>
+    </ul>
+  </div>
+
+
+</header>
+<router-outlet></router-outlet>

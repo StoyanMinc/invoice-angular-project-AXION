@@ -1,0 +1,118 @@
+<div class="sales-page-container">
+    <div class="type-document-options">
+        <h4>Тип документ</h4>
+
+        <p *ngFor="let option of options" (click)="selectOption(option)"
+            [ngClass]="{'selected': selectedOption === option}">
+            {{ option }}
+        </p>
+
+    </div>
+    <div class="invoice-table-container">
+        <div class="invoice-table-container-header">
+            <h4>Изходящи фактури (1999)</h4>
+            <div class="table-options">
+                <input class="search-invoice" type="text" placeholder="Search...">
+                <button class="add-invoice-btn" routerLink="/documents/sales/add-invoice">
+                    Добавяне на фактура
+                </button>
+                <button class="reference-invoice-btn">
+                    Справка
+                </button>
+            </div>
+
+        </div>
+        <div class="invoice-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Номер</th>
+                        <th>Дата на фактура</th>
+                        <th>Тип</th>
+                        <th>Клиент</th>
+                        <th>Стойност</th>
+                        <th>Тип на плащане</th>
+                        <th>Статус</th>
+                        <th>Действие</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>99999</td>
+                        <td>07.03.2025</td>
+                        <td>Фактура</td>
+                        <td>"Папир БГ" ЕООД</td>
+                        <td>180.00лв</td>
+                        <td>Банков превод</td>
+                        <td>чала плащане</td>
+                        <td>0 0 0 0</td>
+                    </tr>
+                    <tr>
+                        <td>99999</td>
+                        <td>07.03.2025</td>
+                        <td>Фактура</td>
+                        <td>"Папир БГ" ЕООД</td>
+                        <td>180.00лв</td>
+                        <td>Банков превод</td>
+                        <td>чала плащане</td>
+                        <td>0 0 0 0</td>
+                    </tr>
+                    <tr>
+                        <td>99999</td>
+                        <td>07.03.2025</td>
+                        <td>Фактура</td>
+                        <td>"Папир БГ" ЕООД</td>
+                        <td>180.00лв</td>
+                        <td>Банков превод</td>
+                        <td>чала плащане</td>
+                        <td>0 0 0 0</td>
+                    </tr>
+                    <tr>
+                        <td>99999</td>
+                        <td>07.03.2025</td>
+                        <td>Фактура</td>
+                        <td>"Папир БГ" ЕООД</td>
+                        <td>180.00лв</td>
+                        <td>Банков превод</td>
+                        <td>чала плащане</td>
+                        <td>0 0 0 0</td>
+                    </tr>
+                    <tr>
+                        <td>99999</td>
+                        <td>07.03.2025</td>
+                        <td>Фактура</td>
+                        <td>"Папир БГ" ЕООД</td>
+                        <td>180.00лв</td>
+                        <td>Банков превод</td>
+                        <td>чала плащане</td>
+                        <td>0 0 0 0</td>
+                    </tr>
+                    <tr>
+                        <td>99999</td>
+                        <td>07.03.2025</td>
+                        <td>Фактура</td>
+                        <td>"Папир БГ" ЕООД</td>
+                        <td>180.00лв</td>
+                        <td>Банков превод</td>
+                        <td>чала плащане</td>
+                        <td>0 0 0 0</td>
+                    </tr>
+                    <tr>
+                        <td>99999</td>
+                        <td>07.03.2025</td>
+                        <td>Фактура</td>
+                        <td>"Папир БГ" ЕООД</td>
+                        <td>180.00лв</td>
+                        <td>Банков превод</td>
+                        <td>чала плащане</td>
+                        <td>0 0 0 0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="invoice-table-footer">
+            <span class="total-invoices-table-span">Общо фактури: 123</span>
+            <span class="total-value-table-span">Тотал: 132123123.12313лв.</span>
+        </div>
+    </div>
+</div>
