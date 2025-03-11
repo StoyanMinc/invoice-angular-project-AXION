@@ -2,7 +2,7 @@
   <nav>
     <ul>
       <li routerLink="/home" routerLinkActive="active">Начало</li>
-      <li routerLink="/documents/sales" routerLinkActive="active">Документи</li>
+      <li routerLink="/documents/sales" [ngClass]="{ 'active':ReturnIsUrlLike('documents') }">Документи</li>
       <li routerLink="/clients" routerLinkActive="active">Контрагенти</li>
       <li>Склад</li>
       <li>Магазин</li>
@@ -18,7 +18,7 @@
   <div class="subheader" *ngIf="ReturnUrl() == 'documents'">
     <ul *ngIf=" ReturnUrl() == 'documents'">
       <li routerLink="/documents/sales" routerLinkActive="active">Продажби</li>
-      <li routerLink="/documents/expenses">Разходи</li>
+      <li routerLink="/documents/expenses" routerLinkActive="active">Разходи</li>
       <li>Автоматични таксувания</li>
       <li>Оферти</li>
       <li>Товарителници</li>

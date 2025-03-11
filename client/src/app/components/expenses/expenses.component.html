@@ -27,67 +27,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>99999</td>
-                        <td>07.03.2025</td>
-                        <td>"Папир БГ" ЕООД</td>
-                        <td>180.00лв</td>
-                        <td>22.12.2025</td>
-                        <td>чала плащане</td>
-                        <td>0 0 0 0</td>
-                    </tr>
-                    <tr>
-                        <td>99999</td>
-                        <td>07.03.2025</td>
-                        <td>"Папир БГ" ЕООД</td>
-                        <td>180.00лв</td>
-                        <td>22.12.2025</td>
-                        <td>чала плащане</td>
-                        <td>0 0 0 0</td>
-                    </tr>
-                    <tr>
-                        <td>99999</td>
-                        <td>07.03.2025</td>
-                        <td>"Папир БГ" ЕООД</td>
-                        <td>180.00лв</td>
-                        <td>22.12.2025</td>
-                        <td>чала плащане</td>
-                        <td>0 0 0 0</td>
-                    </tr>
-                    <tr>
-                        <td>99999</td>
-                        <td>07.03.2025</td>
-                        <td>"Папир БГ" ЕООД</td>
-                        <td>180.00лв</td>
-                        <td>22.12.2025</td>
-                        <td>чала плащане</td>
-                        <td>0 0 0 0</td>
-                    </tr>
-                    <tr>
-                        <td>99999</td>
-                        <td>07.03.2025</td>
-                        <td>"Папир БГ" ЕООД</td>
-                        <td>180.00лв</td>
-                        <td>22.12.2025</td>
-                        <td>чала плащане</td>
-                        <td>0 0 0 0</td>
-                    </tr>
-                    <tr>
-                        <td>99999</td>
-                        <td>07.03.2025</td>
-                        <td>"Папир БГ" ЕООД</td>
-                        <td>180.00лв</td>
-                        <td>22.12.2025</td>
-                        <td>чала плащане</td>
-                        <td>0 0 0 0</td>
-                    </tr>
-                    <tr>
-                        <td>99999</td>
-                        <td>07.03.2025</td>
-                        <td>"Папир БГ" ЕООД</td>
-                        <td>180.00лв</td>
-                        <td>22.12.2025</td>
-                        <td>чала плащане</td>
+                    <tr *ngFor="let invoice of invoices">
+                        <td>{{invoice.invoiceNumber}}</td>
+                        <td>{{invoice.invoiceDate}}</td>
+                        <td>{{invoice.supplier}}</td>
+                        <td>{{invoice.sumForPay}}лв</td>
+                        <td>{{invoice.expireDate}}</td>
+                        <td>чака плащане</td>
                         <td>0 0 0 0</td>
                     </tr>
                 </tbody>

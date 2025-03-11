@@ -46,12 +46,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let invoice of lastIncomingInvoices">
-                        <td>{{invoice.invoiceDate}}</td>
-                        <td>{{invoice.supplier}}</td>
-                        <td>{{invoice.sumForPay}}{{invoice.currency}}</td>
+                    <tr *ngFor="let invoice of lastInvoices">
+                        <td>{{ invoice.invoiceDate }}</td>
                         <td>
-                            <span class="table-paid-info" [ngClass]="{ 'unpaid':invoice.paymentStatus == 0, 'paid': invoice.paymentStatus == 1}">{{ReturnInvoiceStatus(invoice.paymentStatus)}}</span>
+                            <span *ngIf="invoice.client != null">
+                                {{ invoice.client.nameOfClient }}
+                            </span>
+                            <span *ngIf="invoice.client == null">
+                                Няма назначен клиент
+                            </span>
+                        </td>
+                        <td>{{ invoice.totalPrice }}</td>
+                        <td>
+                            <span class="table-paid-info" [ngClass]="{ 'unpaid':invoice.paymentStatus == 0, 'paid':invoice.paymentStatus == 1 }">{{ ReturnInvoiceStatus(invoice.paymentStatus) }}</span>
                         </td>
                     </tr>
                     <!-- <tr>
@@ -95,7 +102,7 @@
         </div>
 
         <div class="last-invoices-holder">
-            <span class="last-invoices-title">Последни 10 изходящи фактури</span>
+            <span class="last-invoices-title">Последни 10 входящи фактури</span>
             <table>
                 <thead>
                     <tr>
@@ -106,20 +113,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let invoice of lastInvoices">
-                        <td>{{ invoice.invoiceDate }}</td>
+                    <tr *ngFor="let invoice of lastIncomingInvoices" >
+                        <td>{{invoice.invoiceDate}}</td>
+                        <td>{{invoice.supplier}}</td>
+                        <td>{{invoice.sumForPay}}{{invoice.currency}}</td>
                         <td>
-                            <span *ngIf="invoice.client != null">
-                                {{ invoice.client.nameOfClient }}
-                            </span>
-                            <span *ngIf="invoice.client == null">
-                                Няма назначен клиент
-                            </span>
+                            <span class="table-paid-info" [ngClass]="{ 'unpaid':invoice.paymentStatus == 0, 'paid': invoice.paymentStatus == 1}">{{ReturnInvoiceStatus(invoice.paymentStatus)}}</span>
                         </td>
-                        <td>{{ invoice.totalPrice }}</td>
-                        <td>
-                            <span class="table-paid-info" [ngClass]="{ 'unpaid':invoice.paymentStatus == 0, 'paid':invoice.paymentStatus == 1 }">{{ ReturnInvoiceStatus(invoice.paymentStatus) }}</span>
-                        </td>
+                   
                     </tr>
                     <!-- <tr>
                         <td>05.02.2025</td>

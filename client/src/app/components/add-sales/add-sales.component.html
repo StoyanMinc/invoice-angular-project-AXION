@@ -10,32 +10,35 @@
 
                 <div class="input-container col-3">
                     <label for="client">Клиент</label>
-                    <input class="invoice-input" type="text" name="client" id="client">
+                    <select class="invoice-input" name="client" id="client" [(ngModel)]="invoiceData.client">
+                        <option value="">Избери клиент</option>
+                        <option value="{{ client._id }}" *ngFor="let client of clients">{{client.nameOfClient}}</option>
+                    </select>
                 </div>
                 <div class="input-container col-3">
                     <label for="mol">МОЛ</label>
-                    <input class="invoice-input" type="text" name="mol" id="mol">
+                    <input class="invoice-input" type="text" name="mol" id="mol" [(ngModel)]="invoiceData.mol">
                 </div>
                 <div class="input-container col-2">
-                    <label for="">Тип на документ</label>
-                    <select class="invoice-input" name="documentType" id="documentType">
+                    <label for="documentType">Тип на документ</label>
+                    <select class="invoice-input" name="documentType" id="documentType" [(ngModel)]="invoiceData.documentType">
                         <option value="фактура">Фактура</option>
                         <option value="проформа">Проформа</option>
                     </select>
                 </div>
                 <div class="input-container col-2">
                     <label for="invoiceNumber">Фактура номер</label>
-                    <input class="invoice-input" type="number" name="invoiceNumber" id="invoiceNumber">
+                    <input class="invoice-input" type="number" name="invoiceNumber" id="invoiceNumber" [(ngModel)]="invoiceData.invoiceNumber">
                 </div>
                 <div class="input-container col-2">
                     <label for="invoiceDate">Дата на фактура</label>
-                    <input class="invoice-input" type="text" name="invoiceDate" id="invoiceDate">
+                    <input class="invoice-input" type="text" name="invoiceDate" id="invoiceDate" [(ngModel)]="invoiceData.invoiceDate">
                 </div>
             </div>
             <div class="second-row">
                 <div class="input-container col-3">
                     <label for="paymentTerm">Срок на плащане</label>
-                    <select class="invoice-input" name="paymentTerm" id="paymentTerm">
+                    <select class="invoice-input" name="paymentTerm" id="paymentTerm" [(ngModel)]="invoiceData.paymentTerm">
                         <option value="15">15 дни</option>
                         <option value="30">30 дни</option>
                     </select>
@@ -49,7 +52,7 @@
                 </div>
                 <div class="input-container col-3">
                     <label for="bankChoise">Избор на банка</label>
-                    <select class="invoice-input" name="bankChoise" id="bankChoise">
+                    <select class="invoice-input" name="bankChoise" id="bankChoise" [(ngModel)]="invoiceData.bankChoise">
                         <option value="ДСК">ДСК</option>
                         <option value="ОББ">ОББ</option>
                         <option value="УниКредит">УниКредит</option>
@@ -78,9 +81,9 @@
                             <input type="text" />
                         </td>
                         <td class="middle-table-td">
-                            <select name="count">
-                                <option value="count">бр</option>
-                                <option value="hh">ч.ч</option>
+                            <select name="count" >
+                                <option value="бр.">бр</option>
+                                <option value="ч.ч.">ч.ч</option>
                             </select>
                         </td>
                         <td class="short-table-td">
@@ -120,6 +123,6 @@
     <div class='add-invoice-footer'>
         <button class="button-go-back">Назад</button>
         <button class="action-button">Добавяне и печат</button>
-        <button class="action-button add-invoice-btn">Добавяне</button>
+        <button class="action-button add-invoice-btn" (click)="createInvoice()" >Добавяне</button>
     </div>
 </div>

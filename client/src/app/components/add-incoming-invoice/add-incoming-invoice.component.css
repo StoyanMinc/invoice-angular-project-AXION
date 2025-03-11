@@ -1,0 +1,87 @@
+.page-container {
+    float: left;
+    width: calc(100% - 40px);
+    margin-top: 60px;
+    background-color: #F7FBFE;
+    padding: 20px;
+}
+
+.add-sales-container {
+    background: #fff;
+    float: left;
+    width: calc(100% - 40px);
+    padding: 0 20px;
+}
+
+.add-sales-header {
+    float: left;
+    width: 100%;
+}
+
+.add-sales-header h4 {
+    margin-bottom: 0;
+}
+
+.add-sales-inputs-container {
+    float: left;
+    width: 100%;
+}
+
+.first-row,
+.second-row {
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.first-row p,
+.second-row p {
+    float: left;
+    width: 100%;
+    font-weight: 600;
+}
+.input-container {
+    float: left;
+}
+
+.add-sales-inputs-container label {
+    float: left;
+}
+
+.invoice-input {
+    float: left;
+    margin-top: 5px;
+    width: calc(100% - 40px);
+    height: 35px;
+    margin-right: 20px;
+}
+
+.add-invoice-footer {
+    float: left;
+    background-color: #F9FBFA;
+    text-align: right;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.add-invoice-footer .action-button,
+.add-invoice-footer .button-go-back {
+    border: none;
+    border-radius: 3px;
+    margin-left: 15px;
+    padding: 5px 10px;
+}
+
+.add-invoice-footer .button-go-back {
+    background-color: white;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.add-invoice-footer .action-button {
+    background-color: rgb(122, 206, 245);
+    color: white;
+}
+
+.add-invoice-btn {
+    margin-right: 20px;
+}

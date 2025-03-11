@@ -19,4 +19,8 @@ export class AppComponent {
   ReturnUrl() {
     return this.router.url.split('/').at(1);
   }
+
+  ReturnIsUrlLike(like) {
+    if(this.router.url.indexOf(like) > -1) { return true; } else { return false; }
+  }
 }
