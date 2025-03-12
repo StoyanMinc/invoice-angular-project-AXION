@@ -3,7 +3,7 @@
         <h4>Тип документ</h4>
 
         <p *ngFor="let option of options" (click)="selectOption(option)"
-            [ngClass]="{'selected': selectedOption === option}">
+            [ngClass]="{'selected': selectedOption === option}" (click)="ShowInvoiceOption(option)" >
             {{ option }}
         </p>
 
@@ -37,7 +37,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let invoice of invoices">
+                    <tr *ngFor="let invoice of invoicesToShow">
                         <td>{{invoice.invoiceNumber}}</td>
                         <td>{{invoice.invoiceDate}}</td>
                         <td>{{invoice.documentType}}</td>
@@ -52,8 +52,9 @@
             </table>
         </div>
         <div class="invoice-table-footer">
-            <span class="total-invoices-table-span">Общо фактури: 123</span>
-            <span class="total-value-table-span">Тотал: 132123123.12313лв.</span>
+            <span class="total-invoices-table-span">Общо фактури: {{invoicesToShow.length}}</span>
+            <span class="total-value-table-span">Тотал: {{CalculateTotalInvoicePrice().toFixed(2)}}лв.</span>
         </div>
     </div>
 </div>
+

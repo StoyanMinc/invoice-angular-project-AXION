@@ -10,7 +10,7 @@
 
                 <div class="input-container col-3">
                     <label for="client">Клиент</label>
-                    <select class="invoice-input" name="client" id="client" [(ngModel)]="invoiceData.client">
+                    <select class="invoice-input" name="client" id="client" (change)="SelectedClient()" [(ngModel)]="invoiceData.client">
                         <option value="">Избери клиент</option>
                         <option value="{{ client._id }}" *ngFor="let client of clients">{{client.nameOfClient}}</option>
                     </select>
@@ -21,14 +21,14 @@
                 </div>
                 <div class="input-container col-2">
                     <label for="documentType">Тип на документ</label>
-                    <select class="invoice-input" name="documentType" id="documentType" [(ngModel)]="invoiceData.documentType">
+                    <select class="invoice-input" name="documentType" id="documentType" (change)="CreateInvoiceNumber()" [(ngModel)]="invoiceData.documentType">
                         <option value="фактура">Фактура</option>
                         <option value="проформа">Проформа</option>
                     </select>
                 </div>
                 <div class="input-container col-2">
                     <label for="invoiceNumber">Фактура номер</label>
-                    <input class="invoice-input" type="number" name="invoiceNumber" id="invoiceNumber" [(ngModel)]="invoiceData.invoiceNumber">
+                    <input class="invoice-input" type="number" name="invoiceNumber" id="invoiceNumber" disabled [(ngModel)]="invoiceData.invoiceNumber">
                 </div>
                 <div class="input-container col-2">
                     <label for="invoiceDate">Дата на фактура</label>
@@ -45,7 +45,7 @@
                 </div>
                 <div class="input-container col-3">
                     <label for="paymentType">Начин на плащане</label>
-                    <select class="invoice-input" name="paymentType" id="paymentType">
+                    <select class="invoice-input" name="paymentType" id="paymentType" [(ngModel)]="invoiceData.paymentType">
                         <option value="Банков превод">Банков превод</option>
                         <option value="В брой">В брой</option>
                     </select>
@@ -75,44 +75,44 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="table-n">1</td>
+                    <tr *ngFor="let product of invoiceData.products; let i = index">
+                        <td class="table-n">{{ i + 1 }}</td>
                         <td class="long-table-td">
-                            <input type="text" />
+                            <input type="text" [(ngModel)]="product.name" (keyup)="CheckForNewRow(product, i)" />
                         </td>
                         <td class="middle-table-td">
-                            <select name="count" >
+                            <select name="count" [(ngModel)]="product.unit">
                                 <option value="бр.">бр</option>
                                 <option value="ч.ч.">ч.ч</option>
                             </select>
                         </td>
                         <td class="short-table-td">
-                            <input type="number" placeholder="0" />
+                            <input type="number" placeholder="0" [(ngModel)]="product.quantity" (keyup)="CheckForNewRow(product, i)" />
                         </td>
                         <td class="short-table-td">
-                            <input type="number" placeholder="0" />
+                            <input type="number" placeholder="0" [(ngModel)]="product.price" (keyup)="CheckForNewRow(product, i)" />
                         </td>
                         <td class="short-table-td">
-                            <input type="number" placeholder="0" />
+                            <input type="number" placeholder="0" [(ngModel)]="product.discount" />
                         </td>
                         <td class="table-n td-values">
-                            0.00
+                            {{ utility.ReturnFixed(product.quantity * product.price) }} лв.
                         </td>
                     </tr>
                     <tr>
                         <td [attr.colspan]="5"></td>
                         <td class="table-n">Субтотал</td>
-                        <td class="table-n">0.00</td>
+                        <td class="table-n">{{ utility.ReturnTotalWithoutVAT(invoiceData).toFixed(2) }}</td>
                     </tr>
                     <tr>
                         <td [attr.colspan]="5"></td>
                         <td class="table-n">ДДС 20%</td>
-                        <td class="table-n">0.00</td>
+                        <td class="table-n">{{ (utility.ReturnTotalWithoutVAT(invoiceData) * 0.2).toFixed(2) }}</td>
                     </tr>
                     <tr>
                         <td [attr.colspan]="5"></td>
                         <td class="table-n">Общо ДДС</td>
-                        <td class="table-n">0.00</td>
+                        <td class="table-n">{{utility.ReturnTotalWithVAT(invoiceData).toFixed(2)}}</td>
                     </tr>
                 </tbody>
             </table>

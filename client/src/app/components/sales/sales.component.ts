@@ -14,11 +14,12 @@ export class SalesComponent {
 
     selectedOption: string = '';
 
-    invoices: any;
+    allInvoices: any[] = [];
+    invoicesToShow: any[] = [];
 
     constructor(private system: SystemService) {
         this.system.GetInvoices().subscribe(
-            (result) => {this.invoices = result; console.log(result);},
+            (result) => {this.allInvoices = result; this.invoicesToShow = result; console.log(result);},
             (error) => {console.log(error.message);}
         )
     }
@@ -27,4 +28,18 @@ export class SalesComponent {
         this.selectedOption = option;
     }
 
+    ShowInvoiceOption(option: string) {
+        if(option === 'Всички') {
+            this.invoicesToShow = this.allInvoices
+        } else if (option=== 'Фактури') {
+            this.invoicesToShow = this.allInvoices.filter(invoice => invoice.documentType === 'фактура');
+        } else if (option === 'Проформа фактури') {
+            this.invoicesToShow = this.allInvoices.filter(invoice => invoice.documentType === 'проформа');
+        }
+    }
+
+    CalculateTotalInvoicePrice() {
+        const totalPrice = this.invoicesToShow.map(i => i.totalPrice).reduce((a, c) => a + c, 0) || 0;
+        return totalPrice;
+    }
 }

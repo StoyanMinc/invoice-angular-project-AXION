@@ -40,8 +40,8 @@
             </table>
         </div>
         <div class="invoice-table-footer">
-            <span class="total-invoices-table-span">Общо фактури: 123</span>
-            <span class="total-value-table-span">Тотал: 132123123.12313лв.</span>
+            <span class="total-invoices-table-span">Общо фактури: {{invoices.length}}</span>
+            <span class="total-value-table-span">Тотал: {{CalculateTotalInvoicePrice().toFixed(2)}}лв.</span>
         </div>
     </div>
 </div>
