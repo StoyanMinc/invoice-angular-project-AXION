@@ -162,3 +162,153 @@ body {
 .col-11 {width: calc(91.66% - 2px) !important;}
 .col-12 {width: calc(100% - 2px) !important;}
 
+.page-container {
+    float: left;
+    width: calc(100% - 40px);
+    margin-top: 60px;
+    background-color: #F7FBFE;
+    padding: 20px;
+}
+
+.add-sales-container {
+    background: #fff;
+    float: left;
+    width: calc(100% - 40px);
+    padding: 0 20px;
+}
+
+.add-sales-header {
+    float: left;
+    width: 100%;
+}
+
+.add-sales-header h4 {
+    margin-bottom: 0;
+}
+
+.add-sales-inputs-container {
+    float: left;
+    width: 100%;
+}
+
+.first-row {
+    float: left;
+    width: 100%;
+}
+
+.second-row,
+.second-row {
+    float: left;
+    width: 100%;
+}
+
+.input-container {
+    float: left;
+    margin-top: 20px;
+}
+
+.add-sales-inputs-container label {
+    float: left;
+}
+
+.invoice-input {
+    float: left;
+    margin-top: 5px;
+    width: calc(100% - 40px);
+    height: 35px;
+    margin-right: 20px;
+}
+
+.add-invoice-table-container {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+    height: calc(100% - 350px);
+}
+
+.add-invoice-table-container table {
+    float: left;
+    width: 100%;
+    border: 1px solid black;
+    text-align: left;
+    border-collapse: collapse;
+}
+.table-n {
+    text-align: center;
+}
+.add-invoice-table-container table thead{
+    background-color: #F9FBFA;
+    color: #505050;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.add-invoice-table-container table thead th{
+    padding: 10px;
+}
+
+.add-invoice-table-container table tbody {
+    background-color: white;
+}
+
+.add-invoice-table-container table tbody tr {
+    height: 35px;
+}
+.add-invoice-table-container table td {
+    border: 1px solid hsl(0, 3%, 80%);
+}
+
+.long-table-td {
+    width: 55%;
+}
+
+.middle-table-td {
+    width: 6%;
+}
+
+.short-table-td {
+    width: 5%;
+}
+.td-values {
+    width: 8%;
+}
+
+.td-n {
+    width: 3%;
+}
+
+.add-invoice-table-container table td input,
+.add-invoice-table-container select{
+    width: calc(100% - 20px);
+    height: 35px;
+}
+
+.add-invoice-footer {
+    float: left;
+    background-color: #F9FBFA;
+    text-align: right;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.add-invoice-footer .action-button,
+.add-invoice-footer .button-go-back {
+    border: none;
+    border-radius: 3px;
+    margin-left: 15px;
+    padding: 5px 10px;
+}
+
+.add-invoice-footer .button-go-back {
+    background-color: white;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.add-invoice-footer .action-button {
+    background-color: rgb(122, 206, 245);
+    color: white;
+}
+
+.add-invoice-btn {
+    margin-right: 20px;
+}

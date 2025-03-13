@@ -10,10 +10,8 @@
 
                 <div class="input-container col-3">
                     <label for="client">Клиент</label>
-                    <select class="invoice-input" name="client" id="client" (change)="SelectedClient()"
-                        [(ngModel)]="invoiceData.client">
-                        <option value="">Избери клиент</option>
-                        <option value="{{ client._id }}" *ngFor="let client of clients">{{client.nameOfClient}}</option>
+                    <select class="invoice-input" name="client" id="client" [(ngModel)]="invoiceData.client._id" (change)="selectMol()">
+                        <option *ngFor="let client of clients" value="{{client._id}}">{{client.nameOfClient}}</option>
                     </select>
                 </div>
                 <div class="input-container col-3">
@@ -22,21 +20,18 @@
                 </div>
                 <div class="input-container col-2">
                     <label for="documentType">Тип на документ</label>
-                    <select class="invoice-input" name="documentType" id="documentType" (change)="CreateInvoiceNumber()"
+                    <input class="invoice-input" type="text" name="documentType" id="documentType" readonly
                         [(ngModel)]="invoiceData.documentType">
-                        <option value="фактура">Фактура</option>
-                        <option value="проформа">Проформа</option>
-                    </select>
                 </div>
                 <div class="input-container col-2">
                     <label for="invoiceNumber">Фактура номер</label>
-                    <input class="invoice-input" type="number" name="invoiceNumber" id="invoiceNumber" disabled
+                    <input class="invoice-input" type="number" name="invoiceNumber" id="invoiceNumber" readonly
                         [(ngModel)]="invoiceData.invoiceNumber">
                 </div>
                 <div class="input-container col-2">
                     <label for="invoiceDate">Дата на фактура</label>
                     <input class="invoice-input" type="text" name="invoiceDate" id="invoiceDate"
-                        [(ngModel)]="invoiceData.invoiceDate">
+                        [(ngModel)]="invoiceData.invoiceDate" readonly>
                 </div>
             </div>
             <div class="second-row">
@@ -82,24 +77,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of invoiceData.products; let i = index">
-                        <td class="table-n">{{ i + 1 }}</td>
+                    <tr *ngFor="let product of invoiceData.products">
+                        <td class="table-n"></td>
                         <td class="long-table-td">
-                            <input type="text" [(ngModel)]="product.name" (keyup)="CheckForNewRow(product, i)" />
+                            <input type="text" [(ngModel)]="product.name" />
                         </td>
                         <td class="middle-table-td">
                             <select name="count" [(ngModel)]="product.measure">
-                                <option value="бр." selected>бр</option>
+                                <option value="бр.">бр</option>
                                 <option value="ч.ч.">ч.ч</option>
                             </select>
                         </td>
                         <td class="short-table-td">
-                            <input type="number" placeholder="0" [(ngModel)]="product.qty"
-                                (keyup)="CheckForNewRow(product, i)" />
+                            <input type="number" placeholder="0" [(ngModel)]="product.qty" />
                         </td>
                         <td class="short-table-td">
-                            <input type="number" placeholder="0" [(ngModel)]="product.unitPrice"
-                                (keyup)="CheckForNewRow(product, i)" />
+                            <input type="number" placeholder="0" [(ngModel)]="product.unitPrice" />
                         </td>
                         <td class="short-table-td">
                             <input type="number" placeholder="0" [(ngModel)]="product.to" />
@@ -132,6 +125,6 @@
     <div class='add-invoice-footer'>
         <button class="button-go-back">Назад</button>
         <button class="action-button">Добавяне и печат</button>
-        <button class="action-button add-invoice-btn" (click)="createInvoice()">Добавяне</button>
+        <button class="action-button add-invoice-btn">Добавяне</button>
     </div>
 </div>

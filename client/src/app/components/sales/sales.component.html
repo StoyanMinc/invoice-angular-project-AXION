@@ -3,7 +3,7 @@
         <h4>Тип документ</h4>
 
         <p *ngFor="let option of options" (click)="selectOption(option)"
-            [ngClass]="{'selected': selectedOption === option}" (click)="ShowInvoiceOption(option)" >
+            [ngClass]="{'selected': selectedOption === option}" (click)="ShowInvoiceOption(option)">
             {{ option }}
         </p>
 
@@ -41,12 +41,19 @@
                         <td>{{invoice.invoiceNumber}}</td>
                         <td>{{invoice.invoiceDate}}</td>
                         <td>{{invoice.documentType}}</td>
-                        <td *ngIf="invoice.client !== null" >{{invoice.client.nameOfClient}}</td>
-                        <td *ngIf="invoice.client === null" >Няма клиент</td>
+                        <td *ngIf="invoice.client !== null">{{invoice.client.nameOfClient}}</td>
+                        <td *ngIf="invoice.client === null">Няма клиент</td>
                         <td>{{invoice.totalPrice.toFixed(2)}}лв</td>
                         <td>{{invoice.paymentType}}</td>
                         <td>чаkа плащане</td>
-                        <td>0 0 0 0</td>
+                        <td>
+                            <div class="action-icon edit-icon" *ngIf="invoice._id" [routerLink]="['/documents/sales/', invoice._id,'edit']"></div>
+                            <div class="action-icon print-icon"></div>
+                            <div class="action-icon dollars-bag-icon"></div>
+                            <div class="action-icon files-icon"></div>
+                            <div class="action-icon message-icon"></div>
+                            <div class="action-icon bin-icon" (click)="DeleteInvoiceHandler(invoice._id)"></div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -57,4 +64,3 @@
         </div>
     </div>
 </div>
-

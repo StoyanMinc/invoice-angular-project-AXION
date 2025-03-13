@@ -8,10 +8,11 @@ export class UtilityService {
     constructor() { }
 
     ReturnFixed(val) { return val.toFixed(2); }
+    
     ReturnTotalWithoutVAT(invoiceData) {
         let total = 0;
         for (var pi = 0; pi < invoiceData.products.length; pi++) {
-            total += invoiceData.products[pi].price * invoiceData.products[pi].quantity;
+            total += invoiceData.products[pi].unitPrice * invoiceData.products[pi].qty;
         }
         return total;
     }
@@ -20,7 +21,7 @@ export class UtilityService {
         let total = 0;
 
         for (const product of invoiceData.products) {
-            total += product.price * product.quantity
+            total += product.unitPrice * product.qty
         };
 
         return total * 1.2;

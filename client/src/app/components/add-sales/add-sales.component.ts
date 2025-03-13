@@ -5,6 +5,7 @@ import { SystemService } from '../../system.service';
 import { CommonModule } from '@angular/common';
 import { UtilityService } from '../../utility.service';
 import { Router } from '@angular/router';
+import { Invoice } from '../../classes.service';
 
 @Component({
     selector: 'app-add-sales',
@@ -14,30 +15,11 @@ import { Router } from '@angular/router';
 })
 export class AddSalesComponent {
 
-    clients: any;
+    clients: any[] = [];
+    invoiceData: any;
 
-    invoiceData: any = {
-        client: '',
-        mol: '',
-        documentType: 'фактура',
-        invoiceNumber: '',
-        invoiceDate: '',
-        paymentTerm: '15',
-        paymentType: '',
-        bankChoise: '',
-        products: [
-            {
-                name: "",
-                quantity: 0,
-                price: 0.00,
-                unit: 'бр.',
-                discount: 0
-            }
-        ],
-        totalPrice: 0
-    }
-
-    constructor(private http: HttpClient, public system: SystemService, public utility:UtilityService, private router: Router) {
+    constructor(private http: HttpClient, public system: SystemService, public utility: UtilityService, private router: Router) {
+        this.invoiceData = new Invoice("", "", "фактура", "", "", "15", "", "", [{ name: "", qty: 0, unitPrice: 0.00, measure: 'бр.', to: 0 }])
         this.system.GetClients().subscribe(
             (response) => { this.clients = response; },
             (error) => { console.log(error.message); }
@@ -49,9 +31,9 @@ export class AddSalesComponent {
         const invoiceData = this.invoiceData;
         invoiceData.invoiceDate = this.utility.FormatDate(invoiceData.invoiceDate);
         invoiceData.expireDate = this.utility.CalculateExpireDate(invoiceData.invoiceDate, invoiceData.paymentTerm);
-        invoiceData.products = invoiceData.products.filter(p => p.name !== '' && p.quantity !== '');
+        invoiceData.products = invoiceData.products.filter(p => p.name !== '' && p.qty !== '');
         invoiceData.totalPrice = this.utility.ReturnTotalWithVAT(invoiceData);
-        
+
         this.system.CreateInvoice(invoiceData).subscribe(
             (response) => {
                 console.log('Created invoice successfuly!', response);
@@ -99,8 +81,8 @@ export class AddSalesComponent {
 
     CheckForNewRow(product, idx) {
         if (idx == this.invoiceData.products.length - 1) {
-            if (product.name.length > 0 || product.price > 0 || product.quantity > 0) {
-                this.invoiceData.products.push({ name: "", quantity: 0, price: 0.00, unit: 'бр.', discount: 0 });
+            if (product.name.length > 0 || product.unitPrice > 0 || product.qty > 0) {
+                this.invoiceData.products.push({ name: "", qty: 0, unitPrice: 0.00, unit: 'бр.', discount: 0 });
             }
         }
     }

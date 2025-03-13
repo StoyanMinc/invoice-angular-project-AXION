@@ -15,11 +15,11 @@ export class HomeComponent {
   lastIncomingInvoices: any;
   
   constructor(public system: SystemService) {
-    this.system.GetLastInvoices().subscribe(
+    this.system.GetLastTenInvoices().subscribe(
       (response) => { this.lastInvoices = response; },
       (error) => { console.log(error); });
 
-    this.system.GetLastIncomingInvoices().subscribe(
+    this.system.GetLastTenIncomingInvoices().subscribe(
       (response) => { this.lastIncomingInvoices = response },
       (error) => { console.log(error); }
     );
