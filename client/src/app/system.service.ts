@@ -7,16 +7,19 @@ import { HttpClient } from '@angular/common/http';
 export class SystemService {
   http: any;
 
-
+  // INVOICE URL'S
   lastInvoicesUrl = 'http://localhost:5001/invoices';
   lastInvoiceUrl = 'http://localhost:5001/invoices/get-last-invoice';
   lastProformaUrl = 'http://localhost:5001/invoices/get-last-proforma';
   invoicesUrl = 'http://localhost:5001/invoices/sales';
   createInvoiceUrl = 'http://localhost:5001/invoices/create-invoice';
 
+  // INCOMING INVOICE URL'S
   lastIncomingInvoiceUrl = 'http://localhost:5001/incoming-invoices';
   incomingInvoicesUrl = 'http://localhost:5001/incoming-invoices/expenses';
+  createIncomingInvoiceUrl = 'http://localhost:5001/incoming-invoices/create-invoice';
 
+  // CLIENTS URL'S
   GetClientsUrl = 'http://localhost:5001/clients';
   constructor() {
   }
@@ -37,5 +40,9 @@ export class SystemService {
   // INCOMING INVOICE REQUESTS
   GetLastTenIncomingInvoices() { return this.http.get(this.lastIncomingInvoiceUrl); };
   GetIncomingInvoices() { return this.http.get(this.incomingInvoicesUrl) };
+  CreateIncomingInvoice(invoiceData) { return this.http.post(this.createIncomingInvoiceUrl, invoiceData) };
+  DeleteIncomingInvoice(invoiceId) { return this.http.delete(`${this.incomingInvoicesUrl}/${invoiceId}/delete`) };
+
+  // CLIENTS REQUESTS
   GetClients() { return this.http.get(this.GetClientsUrl) }
 }

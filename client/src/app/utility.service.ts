@@ -8,7 +8,7 @@ export class UtilityService {
     constructor() { }
 
     ReturnFixed(val) { return val.toFixed(2); }
-    
+
     ReturnTotalWithoutVAT(invoiceData) {
         let total = 0;
         for (var pi = 0; pi < invoiceData.products.length; pi++) {
@@ -52,5 +52,9 @@ export class UtilityService {
         return reformed_expireDate;
     };
 
-    
+    getTodaysDate() {
+        const date = new Date();
+        const todaysDate = date.toLocaleDateString('en-GB').replace(/\//g, '.');
+        return todaysDate;
+    }
 }

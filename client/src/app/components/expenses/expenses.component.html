@@ -34,7 +34,12 @@
                         <td>{{invoice.sumForPay}}лв</td>
                         <td>{{invoice.expireDate}}</td>
                         <td>чака плащане</td>
-                        <td>0 0 0 0</td>
+                        <td class="expenses-action-td">
+                            <div class="action-icon edit-icon"></div>
+                            <div class="action-icon print-icon"></div>
+                            <div class="action-icon dollars-bag-icon"></div>
+                            <div class="action-icon bin-icon" (click)="deleteInvoice(invoice._id)"></div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
