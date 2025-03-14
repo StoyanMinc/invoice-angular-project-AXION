@@ -13,7 +13,6 @@ export class SystemService {
   lastProformaUrl = 'http://localhost:5001/invoices/get-last-proforma';
   invoicesUrl = 'http://localhost:5001/invoices/sales';
   createInvoiceUrl = 'http://localhost:5001/invoices/create-invoice';
-  editInvoiceUrl = 'http://localhost:5001/invoices/:invoiceId/edit';
 
   lastIncomingInvoiceUrl = 'http://localhost:5001/incoming-invoices';
   incomingInvoicesUrl = 'http://localhost:5001/incoming-invoices/expenses';
@@ -31,7 +30,7 @@ export class SystemService {
   GetInvoices() { return this.http.get(this.invoicesUrl); };
   GetOneInvoice(invoiceId) { return this.http.get(`${this.lastInvoicesUrl}/sales/${invoiceId}`) };
   CreateInvoice(invoiceData: any) { return this.http.post(this.createInvoiceUrl, invoiceData) };
-  EditInvoice(invoiceData: any) { return this.http.put(this.editInvoiceUrl, invoiceData) };
+  EditInvoice(invoiceId, invoiceData: any) { return this.http.put(`${this.lastInvoicesUrl}/${invoiceId}/edit`, invoiceData) };
   DeleteInvoice(invoiceId) { return this.http.get(`${this.lastInvoicesUrl}/sales/${invoiceId}/delete`) };
 
 

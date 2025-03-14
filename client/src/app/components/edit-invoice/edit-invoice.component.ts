@@ -46,4 +46,26 @@ export class EditInvoiceComponent implements OnInit {
         const mol = this.clients.find(client => client._id === this.invoiceData.client._id).mol;
         this.invoiceData.mol = mol;
     }
+
+    editInvoice() {
+        console.log(this.invoiceData);
+
+        this.system.EditInvoice(this.invoiceId, this.invoiceData).subscribe(
+            (response) => {
+                console.log('Edit invoice successufuly!');
+                console.log(response);
+                this.router.navigate(['/documents/sales']);
+            },
+            (error) => { console.log(error); }
+        );
+    }
+
+    CheckForNewRow(product, idx) {
+        if (idx == this.invoiceData.products.length - 1) {
+            if (product.name.length > 0 || product.unitPrice > 0 || product.qty > 0) {
+                this.invoiceData.products.push({ name: "", qty: 0, unitPrice: 0.00, unit: 'бр.', discount: 0 });
+            }
+        }
+    }
+    RemoveRow(idx) { this.invoiceData.products.splice(idx, 1); }
 }

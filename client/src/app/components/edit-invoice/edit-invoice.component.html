@@ -2,7 +2,7 @@
 
     <div class="add-sales-container">
         <div class="add-sales-header">
-            <h4>Добавяне на фактура (123123123123)</h4>
+            <h4>Редактиране на фактура {{invoiceData.invoiceNumber}}</h4>
         </div>
 
         <div class="add-sales-inputs-container">
@@ -77,10 +77,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of invoiceData.products">
+                    <tr *ngFor="let product of invoiceData.products; let i = index" >
                         <td class="table-n"></td>
                         <td class="long-table-td">
-                            <input type="text" [(ngModel)]="product.name" />
+                            <input type="text" [(ngModel)]="product.name" (keyup)="CheckForNewRow(product, i)" />
                         </td>
                         <td class="middle-table-td">
                             <select name="count" [(ngModel)]="product.measure">
@@ -89,10 +89,10 @@
                             </select>
                         </td>
                         <td class="short-table-td">
-                            <input type="number" placeholder="0" [(ngModel)]="product.qty" />
+                            <input type="number" placeholder="0" [(ngModel)]="product.qty" (keyup)="CheckForNewRow(product, i)" />
                         </td>
                         <td class="short-table-td">
-                            <input type="number" placeholder="0" [(ngModel)]="product.unitPrice" />
+                            <input type="number" placeholder="0" [(ngModel)]="product.unitPrice" (keyup)="CheckForNewRow(product, i)" />
                         </td>
                         <td class="short-table-td">
                             <input type="number" placeholder="0" [(ngModel)]="product.to" />
@@ -124,7 +124,7 @@
 
     <div class='add-invoice-footer'>
         <button class="button-go-back">Назад</button>
-        <button class="action-button">Добавяне и печат</button>
-        <button class="action-button add-invoice-btn">Добавяне</button>
+        <button class="action-button">Редактиране и печат</button>
+        <button class="action-button add-invoice-btn" (click)="editInvoice()">Редактиране</button>
     </div>
 </div>
