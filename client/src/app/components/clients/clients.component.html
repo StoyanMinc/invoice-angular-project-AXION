@@ -1,0 +1,123 @@
+<div class="clients-container">
+
+    <div class="client-modal-container" *ngIf="isModalOpen">
+        <div class="add-client-container">
+            <h4>Добавяне на клинет</h4>
+            <div class="add-client-first-row">
+                <p>Основна инфорация</p>
+
+                <div class="add-client-input-holder col-3 ">
+                    <label for="typeOfClient">Тип клиент</label>
+                    <select name="typeOfClient" id="typeOfClient">
+                        <option value="фирма">Фирма</option>
+                        <option value="частно лице">Частно лице</option>
+                    </select>
+                </div>
+
+                <div class="add-client-input-holder col-8 ">
+                    <label for="nameOfClient">Име на фирма/клиент</label>
+                    <input type="nameOfClient" name="nameOfClient" id="nameOfClient">
+                </div>
+            </div>
+            <div class="add-client-second-row">
+
+                <div class="add-client-input-holder">
+                    <label For="mol">МОЛ</label>
+                    <input type="text" name="mol" id="mol" />
+                </div>
+
+                <div class="add-client-input-holder">
+                    <label For="eikEgn">ЕИК/ЕГН</label>
+                    <input type="text" name="eikEgn" id="eikEgn" />
+                </div>
+
+                <div class="add-client-input-holder">
+                    <label For="identN">Идент.N ДДС</label>
+                    <input type="text" name="identN" id="identN" />
+                </div>
+            </div>
+
+
+            <div class="add-client-third-row">
+
+                <p>Местоположение</p>
+                <div class="add-client-input-holder">
+                    <label For="address">Адрес</label>
+                    <input type="text" name="address" id="address" />
+                </div>
+
+                <div class="add-client-input-holder">
+                    <label For="city">Град/Село</label>
+                    <input type="text" name="city" id="city" />
+                </div>
+
+                <div class="add-client-input-holder">
+                    <label For="country">Държава</label>
+                    <input type="text" name="country" id="country" />
+                </div>
+            </div>
+
+            <div class="add-client-fourth-row">
+
+                <p>Допълнителна информация</p>
+                <div class="add-client-input-holder">
+                    <label For="email">Е-майл</label>
+                    <input type="text" name="email" id="email" />
+                </div>
+
+                <div class="add-client-input-holder">
+                    <label For="phoneNumber">Телефон</label>
+                    <input type="text" name="phoneNumber" id="phoneNumber" />
+                </div>
+
+                <div class="add-client-input-holder">
+                    <label For="webSite">Уебсайт</label>
+                    <input type="text" name="webSite" id="webSite" />
+                </div>
+            </div>
+
+            <div class="add-clients-buttons-holder">
+                <button class="create-client-button">Запис</button>
+                <button (click)="closeModal()">Отказ</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="invoice-table-container">
+        <div class="invoice-table-container-header">
+            <h4>Клиенти ({{clients.length}})</h4>
+            <div class="table-options">
+                <input class="search-invoice" type="text" placeholder="Search...">
+                <button class="add-invoice-btn" (click)="openModal()">
+                    Добавяне на клиент
+                </button>
+            </div>
+        </div>
+
+        <div class="invoice-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Клиент</th>
+                        <th>МОЛ</th>
+                        <th>Тип</th>
+                        <th>ЕИК/ЕГН</th>
+                        <th>Действие</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let client of clients">
+                        <td>{{client.nameOfClient}}</td>
+                        <td>{{client.mol}}</td>
+                        <td>{{client.typeOfClinet}}</td>
+                        <td>{{client.eikEgn}}</td>
+                        <td>
+                            <div class="action-icon edit-icon"></div>
+                            <div class="action-icon bin-icon"></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

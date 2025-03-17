@@ -24,6 +24,11 @@
       <li>Товарителници</li>
     </ul>
   </div>
+  <div class="subheader" *ngIf="ReturnUrl() == 'clients'">
+    <ul *ngIf=" ReturnUrl() == 'clients'">
+      <li routerLink="/clients" routerLinkActive="active">Клиенти</li>
+    </ul>
+  </div>
 
 
 </header>

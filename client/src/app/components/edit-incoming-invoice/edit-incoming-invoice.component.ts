@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UtilityService } from '../../utility.service';
 import { SystemService } from '../../system.service';
-import { isValidDate } from 'rxjs/internal/util/isDate';
 import { IncomingInvoice } from '../../classes.service';
 
 @Component({
@@ -12,7 +11,7 @@ import { IncomingInvoice } from '../../classes.service';
     templateUrl: './edit-incoming-invoice.component.html',
     styleUrl: './edit-incoming-invoice.component.css'
 })
-export class EditIncomingInvoiceComponent {
+export class EditIncomingInvoiceComponent implements OnInit {
 
     invoiceData: any;
     invoiceId: any = String;
