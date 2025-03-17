@@ -32,10 +32,10 @@ export class Invoice {
         let products_list: any = [];
         for (var pi = 0; pi < products.length; pi++) {
             products_list.push(new Product(products[pi].name, products[pi].qty, products[pi].measure, products[pi].unitPrice, products[pi].to));
-        }
+        };
         this.products = products_list;
-    }
-}
+    };
+};
 
 class Product {
     name: any;
@@ -50,8 +50,8 @@ class Product {
         this.measure = measure;
         this.unitPrice = unitPrice;
         this.to = to;
-    }
-}
+    };
+};
 
 export class IncomingInvoice {
     supplier: any;
@@ -73,5 +73,34 @@ export class IncomingInvoice {
         this.paymentType = paymentType
         this.sumForPay = sumForPay
         this.currency = currency
+    };
+};
+
+export class Client {
+
+    typeOfClient: any;
+    nameOfClient: any;
+    mol: any;
+    eikEgn: any;
+    identN: any;
+    address: any;
+    city: any;
+    country: any;
+    email: any;
+    phoneNumber: any;
+    webSite: any;
+
+    constructor(typeOfClient, nameOfClient, mol, eikEgn, identN, address, city, country, email, phoneNumber, webSite) {
+        this.typeOfClient = typeOfClient
+        this.nameOfClient = nameOfClient
+        this.mol = mol
+        this.eikEgn = eikEgn
+        this.identN = identN
+        this.address = address
+        this.city = city
+        this.country = country
+        this.email = email
+        this.phoneNumber = phoneNumber
+        this.webSite = webSite
     }
-}
+};

@@ -8,7 +8,7 @@
 
                 <div class="add-client-input-holder col-3 ">
                     <label for="typeOfClient">Тип клиент</label>
-                    <select name="typeOfClient" id="typeOfClient">
+                    <select name="typeOfClient" id="typeOfClient" [(ngModel)]="clientData.typeOfClient">
                         <option value="фирма">Фирма</option>
                         <option value="частно лице">Частно лице</option>
                     </select>
@@ -16,69 +16,68 @@
 
                 <div class="add-client-input-holder col-8 ">
                     <label for="nameOfClient">Име на фирма/клиент</label>
-                    <input type="nameOfClient" name="nameOfClient" id="nameOfClient">
+                    <input type="nameOfClient" name="nameOfClient" id="nameOfClient" [(ngModel)]="clientData.nameOfClient" >
                 </div>
             </div>
             <div class="add-client-second-row">
 
-                <div class="add-client-input-holder">
+                <div class="add-client-input-holder col-3">
                     <label For="mol">МОЛ</label>
-                    <input type="text" name="mol" id="mol" />
+                    <input type="text" name="mol" id="mol" [(ngModel)]="clientData.mol" />
                 </div>
 
-                <div class="add-client-input-holder">
+                <div class="add-client-input-holder col-4">
                     <label For="eikEgn">ЕИК/ЕГН</label>
-                    <input type="text" name="eikEgn" id="eikEgn" />
+                    <input type="text" name="eikEgn" id="eikEgn" [(ngModel)]="clientData.eikEgn" />
                 </div>
 
-                <div class="add-client-input-holder">
+                <div class="add-client-input-holder col-4">
                     <label For="identN">Идент.N ДДС</label>
-                    <input type="text" name="identN" id="identN" />
+                    <input type="text" name="identN" id="identN" [(ngModel)]="clientData.identN"/>
                 </div>
             </div>
 
 
             <div class="add-client-third-row">
-
                 <p>Местоположение</p>
-                <div class="add-client-input-holder">
+                <div class="add-client-input-holder col-8">
                     <label For="address">Адрес</label>
-                    <input type="text" name="address" id="address" />
+                    <input type="text" name="address" id="address" [(ngModel)]="clientData.adress"/>
                 </div>
 
-                <div class="add-client-input-holder">
+                <div class="add-client-input-holder col-3">
                     <label For="city">Град/Село</label>
-                    <input type="text" name="city" id="city" />
-                </div>
-
-                <div class="add-client-input-holder">
-                    <label For="country">Държава</label>
-                    <input type="text" name="country" id="country" />
+                    <input type="text" name="city" id="city" [(ngModel)]="clientData.city" />
                 </div>
             </div>
 
             <div class="add-client-fourth-row">
-
-                <p>Допълнителна информация</p>
-                <div class="add-client-input-holder">
-                    <label For="email">Е-майл</label>
-                    <input type="text" name="email" id="email" />
-                </div>
-
-                <div class="add-client-input-holder">
-                    <label For="phoneNumber">Телефон</label>
-                    <input type="text" name="phoneNumber" id="phoneNumber" />
-                </div>
-
-                <div class="add-client-input-holder">
-                    <label For="webSite">Уебсайт</label>
-                    <input type="text" name="webSite" id="webSite" />
+                <div class="add-client-input-holder col-11">
+                    <label For="country">Държава</label>
+                    <input type="text" name="country" id="country" [(ngModel)]="clientData.country" />
                 </div>
             </div>
 
+            <div class="add-client-fifth-row">
+                <p>Допълнителна информация</p>
+                <div class="add-client-input-holder col-4">
+                    <label For="email">Е-майл</label>
+                    <input type="text" name="email" id="email" [(ngModel)]="clientData.email"/>
+                </div>
+                <div class="add-client-input-holder col-3">
+                    <label For="phoneNumber">Телефон</label>
+                    <input type="text" name="phoneNumber" id="phoneNumber" [(ngModel)]="clientData.phoneNumber"/>
+                </div>
+                <div class="add-client-input-holder col-4">
+                    <label For="webSite">Уебсайт</label>
+                    <input type="text" name="webSite" id="webSite" [(ngModel)]="clientData.webSite" />
+                </div>
+            </div>
+
+
             <div class="add-clients-buttons-holder">
-                <button class="create-client-button">Запис</button>
-                <button (click)="closeModal()">Отказ</button>
+                <button class="create-client-button" (click)="createClient()">Запис</button>
+                <button class="close-modal-button" (click)="closeModal()">Отказ</button>
             </div>
         </div>
     </div>

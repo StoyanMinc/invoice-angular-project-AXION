@@ -167,6 +167,7 @@ table thead th {
 .add-client-second-row,
 .add-client-third-row,
 .add-client-fourth-row,
+.add-client-fifth-row,
 .add-clients-buttons-holder {
     float: left;
     width: 100%;
@@ -183,8 +184,6 @@ table thead th {
 .add-client-input-holder label,
 .add-client-input-holder input,
 .add-client-input-holder select
-
-
 {
     float: left;
     width: 100%;
@@ -194,4 +193,26 @@ table thead th {
 .add-client-input-holder select
  {
     height: 100%;
+}
+
+.add-clients-buttons-holder {
+    padding: 20px 0;
+}
+
+.add-clients-buttons-holder button {
+    float: right;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 8px;
+    
+}
+
+.close-modal-button {
+    background-color: #b8b5b5;
+}
+
+.create-client-button {
+    background-color: #05A8F5;
+    color: #fff;
 }

@@ -47,4 +47,5 @@ export class SystemService {
 
   // CLIENTS REQUESTS
   GetClients() { return this.http.get(this.GetClientsUrl) }
+  CreateClient(clientData) { return this.http.post(this.GetClientsUrl, clientData) };
 }
