@@ -35,7 +35,7 @@
                         <td>{{invoice.expireDate}}</td>
                         <td>чака плащане</td>
                         <td class="expenses-action-td">
-                            <div class="action-icon edit-icon"></div>
+                            <div class="action-icon edit-icon" [routerLink]="['/documents/expenses', invoice._id, 'edit']"></div>
                             <div class="action-icon print-icon"></div>
                             <div class="action-icon dollars-bag-icon"></div>
                             <div class="action-icon bin-icon" (click)="deleteInvoice(invoice._id)"></div>

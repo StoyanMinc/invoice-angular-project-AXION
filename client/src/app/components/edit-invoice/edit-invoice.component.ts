@@ -34,7 +34,6 @@ export class EditInvoiceComponent implements OnInit {
                 this.system.GetOneInvoice(this.invoiceId).subscribe(
                     (response) => {
                         this.invoiceData = response;
-                        console.log(this.invoiceData);
                     },
                     (error) => { console.log(error); }
                 );
@@ -48,12 +47,9 @@ export class EditInvoiceComponent implements OnInit {
     }
 
     editInvoice() {
-        console.log(this.invoiceData);
-
         this.system.EditInvoice(this.invoiceId, this.invoiceData).subscribe(
             (response) => {
                 console.log('Edit invoice successufuly!');
-                console.log(response);
                 this.router.navigate(['/documents/sales']);
             },
             (error) => { console.log(error); }

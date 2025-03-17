@@ -40,7 +40,9 @@ export class SystemService {
   // INCOMING INVOICE REQUESTS
   GetLastTenIncomingInvoices() { return this.http.get(this.lastIncomingInvoiceUrl); };
   GetIncomingInvoices() { return this.http.get(this.incomingInvoicesUrl) };
+  GetOneIncomingInvoice(invoiceId) { return this.http.get(`${this.incomingInvoicesUrl}/${invoiceId}`) }
   CreateIncomingInvoice(invoiceData) { return this.http.post(this.createIncomingInvoiceUrl, invoiceData) };
+  EditIncomingInvoice(invoiceId, invoiceData: any) { return this.http.put(`${this.lastIncomingInvoiceUrl}/${invoiceId}/edit`, invoiceData) };
   DeleteIncomingInvoice(invoiceId) { return this.http.delete(`${this.incomingInvoicesUrl}/${invoiceId}/delete`) };
 
   // CLIENTS REQUESTS

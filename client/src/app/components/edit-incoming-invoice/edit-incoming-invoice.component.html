@@ -1,0 +1,63 @@
+<div class="page-container">
+    <div class="add-sales-container">
+        <div class="add-sales-header">
+            <h4>Редактиране на фактура (123123123123)</h4>
+        </div>
+
+        <div class="add-sales-inputs-container">
+            <div class="first-row">
+                <p>Основна информация</p>
+                <div class="input-container col-3">
+                    <label for="supplier">Доставчик</label>
+                    <input class="invoice-input" type="text" name="supplier" id="supplier" [(ngModel)]="invoiceData.supplier">
+                </div>
+                <div class="input-container col-3">
+                    <label for="invoiceNumber">Фактура номер</label>
+                    <input class="invoice-input" type="number" name="invoiceNumber" id="invoiceNumber" [(ngModel)]="invoiceData.invoiceNumber" >
+                </div>
+                <div class="input-container col-3">
+                    <label for="invoiceDate">Дата на фактура</label>
+                    <input class="invoice-input" type="text" name="invoiceDate" id="invoiceDate" [(ngModel)]="invoiceData.invoiceDate" >
+                </div>
+                <div class="input-container col-3">
+                    <label for="comment">Коментар</label>
+                    <input class="invoice-input" type="text" name="comment" id="comment" [(ngModel)]="invoiceData.comment" >
+                </div>
+            </div>
+            <div class="second-row">
+                <p>Детайли за плащане</p>
+
+                <div class="input-container col-3">
+                    <label for="paymentTerm">Срок на плащане</label>
+                    <select class="invoice-input" name="paymentTerm" id="paymentTerm" [(ngModel)]="invoiceData.paymentTerm" >
+                        <option value="15">15 дни</option>
+                        <option value="30">30 дни</option>
+                    </select>
+                </div>
+                <div class="input-container col-3">
+                    <label for="paymentType">Начин на плащане</label>
+                    <select class="invoice-input" name="paymentType" id="paymentType" [(ngModel)]="invoiceData.paymentType" >
+                        <option value="Банков превод">Банков превод</option>
+                        <option value="В брой">В брой</option>
+                    </select>
+                </div>
+                <div class="input-container col-3">
+                    <label for="sumForPay">Сума за плащане (С ДДС)</label>
+                    <input class="invoice-input" type="number" name="sumForPay" id="sumForPay" [(ngModel)]="invoiceData.sumForPay">
+                </div>
+                <div class="input-container col-3">
+                    <label for="currency">Валута</label>
+                    <select class="invoice-input" name="currency" id="currency" [(ngModel)]="invoiceData.currency" >
+                        <option value="лв">лв.</option>
+                        <option value="евро">евро</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class='add-invoice-footer'>
+            <button class="button-go-back">Назад</button>
+            <button class="action-button">Добавяне и печат</button>
+            <button class="action-button add-invoice-btn" (click)="editInvoice()" >Редактиране</button>
+        </div>
+    </div>
+</div>

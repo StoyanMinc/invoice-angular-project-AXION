@@ -44,10 +44,8 @@ export class SalesComponent {
     }
 
     DeleteInvoiceHandler(invoiceId: string) {
-        console.log(invoiceId);
         this.system.DeleteInvoice(invoiceId).subscribe(
             (response) => {
-                console.log(response);
                 this.invoicesToShow = this.allInvoices.filter(invoice => invoice._id !== invoiceId);
             },
             (error) => { console.log(error); }
