@@ -37,12 +37,20 @@ export class ClientsComponent {
     createClient() {
         console.log(this.clientData);
         this.system.CreateClient(this.clientData).subscribe(
-            (response) => { 
+            (response) => {
                 this.clients.push(response);
                 this.closeModal();
-             },
+            },
+            (error) => { console.log(error); }
+        )
+    };
+
+    deleteClient(clientId) {
+        this.system.DeleteClient(clientId).subscribe(
+            (response) => {
+                this.clients = this.clients.filter(client => client._id !== clientId);
+            },
             (error) => { console.log(error); }
         )
     }
-
 }

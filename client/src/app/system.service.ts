@@ -20,7 +20,7 @@ export class SystemService {
   createIncomingInvoiceUrl = 'http://localhost:5001/incoming-invoices/create-invoice';
 
   // CLIENTS URL'S
-  GetClientsUrl = 'http://localhost:5001/clients';
+  getClientsUrl = 'http://localhost:5001/clients';
   constructor() {
   }
 
@@ -46,6 +46,7 @@ export class SystemService {
   DeleteIncomingInvoice(invoiceId) { return this.http.delete(`${this.incomingInvoicesUrl}/${invoiceId}/delete`) };
 
   // CLIENTS REQUESTS
-  GetClients() { return this.http.get(this.GetClientsUrl) }
-  CreateClient(clientData) { return this.http.post(this.GetClientsUrl, clientData) };
+  GetClients() { return this.http.get(this.getClientsUrl) }
+  CreateClient(clientData) { return this.http.post(this.getClientsUrl, clientData) };
+  DeleteClient(clientId) { return this.http.delete(`${this.getClientsUrl}/${clientId}`) };
 }

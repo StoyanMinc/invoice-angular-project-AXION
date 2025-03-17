@@ -112,7 +112,7 @@
                         <td>{{client.eikEgn}}</td>
                         <td>
                             <div class="action-icon edit-icon"></div>
-                            <div class="action-icon bin-icon"></div>
+                            <div class="action-icon bin-icon" (click)="deleteClient(client._id)"></div>
                         </td>
                     </tr>
                 </tbody>
