@@ -1,0 +1,169 @@
+<div class="print">
+    <div class="print-title">
+        <h1>Invoice</h1>
+        <h2>Original</h2>
+    </div>
+
+    <div class="print-logo">
+        <span class="logo-span">LOGO</span>
+    </div>
+
+    <div class="print-invoice-info">
+        <div class="supplier-recipient-info">
+            <div class="supplier-info">
+                <h4>Доставчик/изпълнител</h4>
+                <div class="print-info">
+                    <span class="print-span-left">Пламен Петров</span>
+                    <span class="print-span-right">"Аксион Солюшънс" ЕООД</span>
+                </div>
+                <div class="print-info">
+                    <span class="print-span-left">Държава</span>
+                    <span class="print-span-right">България</span>
+                </div>
+                <div class="print-info">
+                    <span class="print-span-left">Гр./с.</span>
+                    <span class="print-span-right">Пловдив</span>
+                </div>
+                <div class="print-info">
+                    <span class="print-span-left">Адрес:</span>
+                    <span class="print-span-right">ж.к. Тракия бл. 193 тн тн тн</span>
+                </div>
+                <div class="print-info">
+                    <span class="print-span-left">Идент.N ДДС</span>
+                    <span class="print-span-right">BG1111111</span>
+                </div>
+                <div class="print-info">
+                    <span class="print-span-left">ЕИК/ЕГН</span>
+                    <span class="print-span-right">111111111</span>
+                </div>
+                <div class="print-info">
+                    <span class="print-span-left">МОЛ</span>
+                    <span class="print-span-right">Тодор Тодоров</span>
+                </div>
+            </div>
+
+            <div class="recipient-info">
+                <h4>Получател/възложител</h4>
+                <div class="print-info">
+                    <span class="print-span-left">Име</span>
+                    <span class="print-span-right">{{invoiceData.client.nameOfClient}}</span>
+                </div>
+                <div class="print-info">
+                    <span class="print-span-left">Държава</span>
+                    <span class="print-span-right">{{invoiceData.client.country}}</span>
+                </div>
+                <div class="print-info">
+                    <span class="print-span-left">Гр./с.</span>
+                    <span class="print-span-right">{{invoiceData.client.city}}</span>
+                </div>
+                <div class="print-info">
+                    <span class="print-span-left">Адрес:</span>
+                    <span class="print-span-right">{{invoiceData.client.address}}</span>
+                </div>
+                <div class="print-info">
+                    <span class="print-span-left">Идент.N ДДС</span>
+                    <span class="print-span-right">{{invoiceData.client.identN}}</span>
+                </div>
+                <div class="print-info">
+                    <span class="print-span-left">ЕИК/ЕГН</span>
+                    <span class="print-span-right">{{invoiceData.client.eikEgn}}</span>
+                </div>
+                <div class="print-info">
+                    <span class="print-span-left">МОЛ</span>
+                    <span class="print-span-right">{{invoiceData.client.mol}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="invoice-payment-info">
+
+            <div class="print-invoice-content">
+                <h4>Информация за фактурата</h4>
+                <div class="print-info">
+                    <span class="print-span-left">Фактура N</span>
+                    <span class="print-span-right">{{invoiceData.invoiceNumber}}</span>
+                </div>
+                <div class="print-info">
+                    <span class="print-span-left">Дата на фактурата</span>
+                    <span class="print-span-right">{{invoiceData.invoiceDate}}</span>
+                </div>
+                <div class="print-info">
+                    <span class="print-span-left">Срок на плащане</span>
+                    <span class="print-span-right">{{invoiceData.expireDate}}</span>
+                </div>
+            </div>
+
+            <div class="print-payment-info">
+                <h4>Информация за плащането</h4>
+                <div class="print-info">
+                    <span class="print-span-left">валута</span>
+                    <span class="print-span-right">BGN</span>
+                </div>
+                <div class="print-info">
+                    <span class="print-span-left">Начин на плащане</span>
+                    <span class="print-span-right">{{invoiceData.paymentType}}</span>
+                </div>
+                <div *ngIf="invoiceData.paymentType === 'Банков превод'" class="print-info">
+                    <span class="print-span-left">Банка</span>
+                    <span class="print-span-right">{{invoiceData.bankChoise}}</span>
+                </div>
+                <div *ngIf="invoiceData.paymentType === 'Банков превод'" class="print-info">
+                    <span class="print-span-left">BIC</span>
+                    <span class="print-span-right">STSAUb12</span>
+                </div>
+                <div *ngIf="invoiceData.paymentType === 'Банков превод'" class="print-info">
+                    <span class="print-span-left">IBAN</span>
+                    <span class="print-span-right">Някъв IBAN.....</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="print-table-contaier">
+        <table class="print-table">
+            <thead>
+                <tr>
+                    <th>N</th>
+                    <th>Описание на стока / услуга</th>
+                    <th>Мярка</th>
+                    <th>К-во</th>
+                    <th>Ед.цена</th>
+                    <th>Т.О.(%)</th>
+                    <th>Стойност</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of invoiceData.products; let i = index">
+                    <td>{{i + 1}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.measure}}</td>
+                    <td>{{product.qty}}</td>
+                    <td>{{product.unitPrice}}</td>
+                    <td>{{product.to}}</td>
+                    <td>{{ utility.ReturnFixed(product.qty * product.unitPrice) }} </td>
+                </tr>
+                <tr>
+                    <td colSpan='4' class="empty-print-td"><span class="prin-table-bold">Словом:</span> Сто и двадесет лв деведест и шест стотинки</td>
+                    <td colSpan='2' class="prin-table-bold">Сума</td>
+                    <td>{{ (utility.ReturnTotalWithoutVAT(invoiceData)).toFixed(2) }}</td>
+                </tr>
+                <tr>
+                    <td colSpan='4' class="empty-print-td"></td>
+                    <td colSpan='2' class="prin-table-bold">Данъчна основа</td>
+                    <td>{{ (utility.ReturnTotalWithoutVAT(invoiceData)).toFixed(2) }}</td>
+                </tr>
+                <tr>
+                    <td colSpan='4' class="empty-print-td"></td>
+                    <td colSpan='2' class="prin-table-bold">ДСС 20.00%</td>
+                    <td>{{ (utility.ReturnTotalWithoutVAT(invoiceData) * 0.2).toFixed(2) }}</td>
+                </tr>
+                <tr>
+                    <td colSpan='4' class="empty-print-td"></td>
+                    <td colSpan='2' class="prin-table-bold">Общо с ДДС</td>
+                    <td>{{ (utility.ReturnTotalWithVAT(invoiceData)).toFixed(2) }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
