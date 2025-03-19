@@ -14,8 +14,9 @@ import { FormsModule } from '@angular/forms';
 export class ClientsComponent {
 
     clients: any[] = [];
-    clientData: any;
+    clientData: any = {};
     isModalOpen: boolean = false;
+    isEditModalOpen: boolean = false;
 
     constructor(public router: Router, public system: SystemService) {
         this.clientData = new Client('', '', '', '', '', '', '', '', '', '', '');
@@ -30,8 +31,14 @@ export class ClientsComponent {
         this.isModalOpen = true;
     }
 
+    openEditModal() {
+        this.isEditModalOpen = true;
+    }
+
     closeModal() {
         this.isModalOpen = false;
+        this.isEditModalOpen = false;
+        this.clientData = {};
     }
 
     createClient() {
@@ -44,6 +51,28 @@ export class ClientsComponent {
             (error) => { console.log(error); }
         )
     };
+
+    openModalForEdit(clientId) {
+        this.system.GetOneClient(clientId).subscribe(
+            (response) => {
+                this.clientData = response;
+                this.openEditModal();
+            },
+            (error) => { console.log(error); }
+        );
+    }
+
+    editClient(clientId) {
+        this.system.EditClient(clientId, this.clientData).subscribe(
+            (response) => {
+                const indexOfClient = this.clients.findIndex(client => client._id === clientId);
+                this.clients[indexOfClient] = response;
+                this.closeModal();
+                
+            },
+            (error) => { console.log(error); }
+        )
+    }
 
     deleteClient(clientId) {
         this.system.DeleteClient(clientId).subscribe(

@@ -104,3 +104,27 @@ export class Client {
         this.webSite = webSite
     }
 };
+
+export class AutomaticInvoice {
+    client: any;
+    mol: any;
+    dateOfAutomatization: any;
+    paymentTerm: any;
+    paymentType: any;
+    bankChoise: any;
+    products: any = [];
+
+    constructor(client, mol, dateOfAutomatization, paymentTerm, paymentType, bankChoice, products) {
+        this.client = client;
+        this.mol = mol;
+        this.dateOfAutomatization = dateOfAutomatization;
+        this.paymentTerm = paymentTerm;
+        this.paymentType = paymentType;
+        this.bankChoise = bankChoice;
+        let products_list: any = [];
+        for (var pi = 0; pi < products.length; pi++) {
+            products_list.push(new Product(products[pi].name, products[pi].qty, products[pi].measure, products[pi].unitPrice, products[pi].to));
+        };
+        this.products = products_list;
+    };
+}

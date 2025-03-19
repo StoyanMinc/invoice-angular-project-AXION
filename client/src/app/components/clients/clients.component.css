@@ -58,6 +58,19 @@
     cursor: pointer;
 }
 
+
+.add-invoice-btn {
+    background-image: url(../../../assets/plus-solid.svg);
+    background-repeat: no-repeat;
+    background-size: 18px;
+    top: 5px;
+    background-position-y: 3px;
+    background-position-x: 4px;
+    text-align: right;
+    width: 160px;
+}
+
+
 .invoice-table {
     float: left;
     width: 100%;
@@ -183,15 +196,13 @@ table thead th {
 
 .add-client-input-holder label,
 .add-client-input-holder input,
-.add-client-input-holder select
-{
+.add-client-input-holder select {
     float: left;
     width: 100%;
 }
 
 .add-client-input-holder input,
-.add-client-input-holder select
- {
+.add-client-input-holder select {
     height: 100%;
 }
 
@@ -205,7 +216,7 @@ table thead th {
     border-radius: 5px;
     border: none;
     padding: 10px 8px;
-    
+
 }
 
 .close-modal-button {

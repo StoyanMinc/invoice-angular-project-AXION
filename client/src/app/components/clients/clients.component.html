@@ -1,6 +1,6 @@
 <div class="clients-container">
 
-    <div class="client-modal-container" *ngIf="isModalOpen">
+    <div class="client-modal-container" *ngIf="isModalOpen || isEditModalOpen">
         <div class="add-client-container">
             <h4>Добавяне на клинет</h4>
             <div class="add-client-first-row">
@@ -42,7 +42,7 @@
                 <p>Местоположение</p>
                 <div class="add-client-input-holder col-8">
                     <label For="address">Адрес</label>
-                    <input type="text" name="address" id="address" [(ngModel)]="clientData.adress"/>
+                    <input type="text" name="address" id="address" [(ngModel)]="clientData.address"/>
                 </div>
 
                 <div class="add-client-input-holder col-3">
@@ -76,7 +76,8 @@
 
 
             <div class="add-clients-buttons-holder">
-                <button class="create-client-button" (click)="createClient()">Запис</button>
+                <button *ngIf="isModalOpen" class="create-client-button" (click)="createClient()">Запис</button>
+                <button *ngIf="isEditModalOpen" class="create-client-button" (click)="editClient(clientData._id)">Редактиране</button>
                 <button class="close-modal-button" (click)="closeModal()">Отказ</button>
             </div>
         </div>
@@ -108,10 +109,10 @@
                     <tr *ngFor="let client of clients">
                         <td>{{client.nameOfClient}}</td>
                         <td>{{client.mol}}</td>
-                        <td>{{client.typeOfClinet}}</td>
+                        <td>{{client.typeOfClient}}</td>
                         <td>{{client.eikEgn}}</td>
                         <td>
-                            <div class="action-icon edit-icon"></div>
+                            <div class="action-icon edit-icon" (click)="openModalForEdit(client._id)"></div>
                             <div class="action-icon bin-icon" (click)="deleteClient(client._id)"></div>
                         </td>
                     </tr>

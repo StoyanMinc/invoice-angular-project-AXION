@@ -19,14 +19,14 @@
     <ul *ngIf=" ReturnUrl() == 'documents'">
       <li routerLink="/documents/sales" routerLinkActive="active">Продажби</li>
       <li routerLink="/documents/expenses" routerLinkActive="active">Разходи</li>
-      <li>Автоматични таксувания</li>
+      <li routerLink="/documents/automatic-invoices" routerLinkActive="active">Автоматични таксувания</li>
       <li>Оферти</li>
       <li>Товарителници</li>
     </ul>
   </div>
   <div class="subheader" *ngIf="ReturnUrl() == 'clients'">
     <ul *ngIf=" ReturnUrl() == 'clients'">
-      <li routerLink="/clients" routerLinkActive="active">Клиенти</li>
+      <li class="client-list-item" routerLink="/clients" routerLinkActive="active">Клиенти</li>
     </ul>
   </div>
 

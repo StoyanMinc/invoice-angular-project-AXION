@@ -31,7 +31,7 @@ export class AddSalesComponent {
         const invoiceData = this.invoiceData;
         invoiceData.invoiceDate = this.utility.FormatDate(invoiceData.invoiceDate);
         invoiceData.expireDate = this.utility.CalculateExpireDate(invoiceData.invoiceDate, invoiceData.paymentTerm);
-        invoiceData.products = invoiceData.products.filter(p => p.name !== '' || p.qty !== '');
+        invoiceData.products = invoiceData.products.filter(p => p.name !== '' && p.qty > 0);
         invoiceData.totalPrice = this.utility.ReturnTotalWithVAT(invoiceData);
 
         this.system.CreateInvoice(invoiceData).subscribe(
@@ -87,4 +87,6 @@ export class AddSalesComponent {
         }
     }
     RemoveRow(idx) { this.invoiceData.products.splice(idx, 1); }
+
+    
 }

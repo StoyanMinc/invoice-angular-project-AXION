@@ -21,6 +21,10 @@ export class SystemService {
 
   // CLIENTS URL'S
   getClientsUrl = 'http://localhost:5001/clients';
+
+  // AUTOMATIC INVOICES URL'S
+  getAutomaticInvoicesUrl = 'http://localhost:5001/automatic-invoices';
+
   constructor() {
   }
 
@@ -47,6 +51,14 @@ export class SystemService {
 
   // CLIENTS REQUESTS
   GetClients() { return this.http.get(this.getClientsUrl) }
+  GetOneClient(clientId) { return this.http.get(`${this.getClientsUrl}/${clientId}`) }
   CreateClient(clientData) { return this.http.post(this.getClientsUrl, clientData) };
+  EditClient(clientId: string, cliendData: {}) { return this.http.put(`${this.getClientsUrl}/${clientId}`, cliendData) }
   DeleteClient(clientId) { return this.http.delete(`${this.getClientsUrl}/${clientId}`) };
+
+  // AUTOMATIC INVOICES REQUESTS
+  GetAutomaticInvoices() { return this.http.get(this.getAutomaticInvoicesUrl) };
+  CreateAutomaticInvoice(invoiceData) { return this.http.post(this.getAutomaticInvoicesUrl, invoiceData) };
+  DeleteAutomaticInvoice(invoiceId) { return this.http.get(`${this.getAutomaticInvoicesUrl}/${invoiceId}/delete`) };
+
 }

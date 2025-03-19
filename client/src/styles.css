@@ -235,7 +235,16 @@ body {
 }
 .table-n {
     text-align: center;
+   
 }
+
+.table-n-number {
+ background-image: url('./assets/close.svg');
+ background-size: 15px;
+ background-repeat: no-repeat;
+ background-position-y: 14px;
+}
+
 .add-invoice-table-container table thead{
     background-color: #F9FBFA;
     color: #505050;
@@ -275,6 +284,7 @@ body {
 
 .td-n {
     width: 3%;
+  
 }
 
 .add-invoice-table-container table td input,
@@ -287,8 +297,8 @@ body {
     float: left;
     background-color: #F9FBFA;
     text-align: right;
-    width: 100%;
-    padding: 10px 0;
+    width: calc(100% - 40px);
+    padding: 10px 20px;
 }
 
 .add-invoice-footer .action-button,
@@ -309,6 +319,11 @@ body {
     color: white;
 }
 
-.add-invoice-btn {
-    margin-right: 20px;
+@media print {
+    /* All your print styles go here */
+    header,
+    #footer,
+    #nav {
+        display: none !important;
+    }
 }

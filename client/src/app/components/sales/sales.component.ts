@@ -10,16 +10,14 @@ import { SystemService } from '../../system.service';
     styleUrl: './sales.component.css'
 })
 export class SalesComponent {
-    options: string[] = ['Всички', 'Фактури', 'Проформа фактури'];
 
-    selectedOption: string = '';
-
+    selectedOption: string = 'Всички';
     allInvoices: any[] = [];
     invoicesToShow: any[] = [];
 
     constructor(private system: SystemService, private router: Router) {
         this.system.GetInvoices().subscribe(
-            (result) => { this.allInvoices = result; this.invoicesToShow = result; console.log(result); },
+            (result) => { this.allInvoices = result; this.invoicesToShow = result; },
             (error) => { console.log(error.message); }
         )
     }

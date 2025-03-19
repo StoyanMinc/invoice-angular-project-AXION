@@ -55,6 +55,17 @@
     cursor: pointer;
 }
 
+.add-invoice-btn {
+    background-image: url(../../../assets/plus-solid.svg);
+    background-repeat: no-repeat;
+    background-size: 18px;
+    top: 5px;
+    background-position-y: 3px;
+    background-position-x: 4px;
+    text-align: right;
+    width: 172px;
+}
+
 .invoice-table {
     float: left;
     width: 100%;

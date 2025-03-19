@@ -1,0 +1,16 @@
+.add-automatic-invoice-container {
+    float: left;
+    width: calc(100% - 80px);
+    margin-top: 60px;
+    padding: 40px;
+}
+
+.add-automatic-invoice-container h3{
+    margin: 0;
+}
+.add-automatic-invoice {
+    float: left;
+    width: calc(100% - 40px);
+    background-color: #fff;
+    padding: 20px;
+}

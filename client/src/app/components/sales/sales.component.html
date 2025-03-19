@@ -1,11 +1,20 @@
 <div class="sales-page-container">
     <div class="type-document-options">
         <h4>Тип документ</h4>
-
-        <p *ngFor="let option of options" (click)="selectOption(option)"
-            [ngClass]="{'selected': selectedOption === option}" (click)="ShowInvoiceOption(option)">
-            {{ option }}
-        </p>
+        <ul class="sales-option">
+            <li [ngClass]="{'selected': selectedOption === 'Всички'}"
+                (click)="selectOption('Всички'); ShowInvoiceOption('Всички')">
+                Всички
+            </li>
+            <li [ngClass]="{'selected': selectedOption === 'Фактури'}"
+                (click)="selectOption('Фактури'); ShowInvoiceOption('Фактури')">
+                Фактури
+            </li>
+            <li [ngClass]="{ 'selected': selectedOption === 'Проформа фактури'}"
+                (click)="selectOption('Проформа фактури'); ShowInvoiceOption('Проформа фактури')">
+                Проформа фактури
+            </li>
+        </ul>
 
     </div>
     <div class="invoice-table-container">
@@ -47,8 +56,9 @@
                         <td>{{invoice.paymentType}}</td>
                         <td>чаkа плащане</td>
                         <td>
-                            <div class="action-icon edit-icon" *ngIf="invoice._id" [routerLink]="['/documents/sales/', invoice._id,'edit']"></div>
-                            <div class="action-icon print-icon"></div>
+                            <div class="action-icon edit-icon" *ngIf="invoice._id"
+                                [routerLink]="['/documents/sales/', invoice._id,'edit']"></div>
+                            <div class="action-icon print-icon" [routerLink]="['/documents/sales', invoice._id, 'print-invoice']"></div>
                             <div class="action-icon dollars-bag-icon"></div>
                             <div class="action-icon files-icon"></div>
                             <div class="action-icon message-icon"></div>
