@@ -47,6 +47,7 @@ export class EditInvoiceComponent implements OnInit {
     }
 
     editInvoice() {
+        this.invoiceData.products = this.invoiceData.products.filter(p => p.name !== '' && p.qty > 0);
         this.system.EditInvoice(this.invoiceId, this.invoiceData).subscribe(
             (response) => {
                 console.log('Edit invoice successufuly!');
@@ -55,10 +56,10 @@ export class EditInvoiceComponent implements OnInit {
             (error) => { console.log(error); }
         );
     }
-
+    
     CheckForNewRow(product, idx) {
         if (idx == this.invoiceData.products.length - 1) {
-            if (product.name.length > 0 || product.unitPrice > 0 || product.qty > 0) {
+            if (product.name.length > 0 && product.qty > 0) {
                 this.invoiceData.products.push({ name: "", qty: 0, unitPrice: 0.00, unit: 'бр.', discount: 0 });
             }
         }
