@@ -58,7 +58,9 @@ export class SystemService {
 
   // AUTOMATIC INVOICES REQUESTS
   GetAutomaticInvoices() { return this.http.get(this.getAutomaticInvoicesUrl) };
+  GetOneAutomaticInvoice(invoiceId: string) { return this.http.get(`${this.getAutomaticInvoicesUrl}/${invoiceId}`) };
   CreateAutomaticInvoice(invoiceData) { return this.http.post(this.getAutomaticInvoicesUrl, invoiceData) };
+  EditAutomaticInvoice(invoiceId: string, invoiceData: {}) { return this.http.put(`${this.getAutomaticInvoicesUrl}/${invoiceId}/edit`, invoiceData) };
   DeleteAutomaticInvoice(invoiceId) { return this.http.get(`${this.getAutomaticInvoicesUrl}/${invoiceId}/delete`) };
 
 }

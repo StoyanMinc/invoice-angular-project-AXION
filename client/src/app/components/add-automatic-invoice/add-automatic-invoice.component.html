@@ -15,8 +15,6 @@
             <div class="input-container col-3">
                 <label for="dateOfAutomatization">Месечна дата на автоматизация</label>
                 <select class="invoice-input" name="dateOfAutomatization" id="dateOfAutomatization" [(ngModel)]="automaticInvoiceData.dateOfAutomatization">
-                    <!-- <option value="15">15 дни</option>
-                    <option value="30">30 дни</option> -->
                     <option *ngFor="let option of utility.generateOptions(); let i = index" [value]="i + 1">{{option}}</option>
                 </select>
             </div>
@@ -80,7 +78,7 @@
                             <td class="short-table-td">
                                 <input type="number" placeholder="0" [(ngModel)]="product.unitPrice"/>
                             </td>
-                            <td class="table-n td-values">{{utility.ReturnTotalWithoutVAT(automaticInvoiceData).toFixed(2)}}</td>
+                            <td class="table-n td-values">{{(product.qty * product.unitPrice).toFixed(2)}}</td>
 
                         </tr>
                     

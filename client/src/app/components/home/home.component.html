@@ -56,7 +56,7 @@
                                 Няма назначен клиент
                             </span>
                         </td>
-                        <td>{{ invoice.totalPrice }}</td>
+                        <td>{{ invoice.totalPrice.toFixed(2) }}</td>
                         <td>
                             <span class="table-paid-info" [ngClass]="{ 'unpaid':invoice.paymentStatus == 0, 'paid':invoice.paymentStatus == 1 }">{{ ReturnInvoiceStatus(invoice.paymentStatus) }}</span>
                         </td>
@@ -80,7 +80,7 @@
                     <tr *ngFor="let invoice of lastIncomingInvoices" >
                         <td>{{invoice.invoiceDate}}</td>
                         <td>{{invoice.supplier}}</td>
-                        <td>{{invoice.sumForPay}}{{invoice.currency}}</td>
+                        <td>{{invoice.sumForPay.toFixed(2)}}{{invoice.currency}}</td>
                         <td>
                             <span class="table-paid-info" [ngClass]="{ 'unpaid':invoice.paymentStatus == 0, 'paid': invoice.paymentStatus == 1}">{{ReturnInvoiceStatus(invoice.paymentStatus)}}</span>
                         </td>
