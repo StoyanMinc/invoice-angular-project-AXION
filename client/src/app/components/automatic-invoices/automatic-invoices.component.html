@@ -1,0 +1,44 @@
+<div class="expenses-container">
+    <div class="invoice-table-container">
+        <div class="invoice-table-container-header">
+            <h4>Входящи фактури (1999)</h4>
+            <div class="table-options">
+                <input class="search-invoice" type="text" placeholder="Search...">
+                <button class="add-invoice-btn" routerLink="/documents/automatic-invoices/add-invoice">
+                    Добавяне на такса
+                </button>
+            </div>
+
+        </div>
+        <div class="invoice-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Номер</th>
+                        <th>Дата в месеца</th>
+                        <th>Клиент</th>
+                        <th>Стойност</th>
+                        <th>Тип на плащане</th>
+                        <th>Брой неплатени</th>
+                        <th>Действие</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let invoice of invoices let i = index">
+                        <td>{{i + 1}}</td>
+                        <td>{{invoice.dateOfAutomatization}}</td>
+                        <td>{{invoice.client.nameOfClient}}</td>
+                        <td>{{invoice.totalPrice}}лв</td>
+                        <td>{{invoice.paymentType}}</td>
+                        <td>0</td>
+                        <td class="expenses-action-td">
+                            <div class="action-icon edit-icon"
+                                [routerLink]="['/documents/automatic-invoices', invoice._id, 'edit']"></div>
+                            <div class="action-icon bin-icon" (click)="deleteInvoice(invoice._id)"></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
