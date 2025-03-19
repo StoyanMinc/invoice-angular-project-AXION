@@ -79,7 +79,7 @@
                             <input type="number" placeholder="0" [(ngModel)]="product.to" />
                         </td>
                         <td class="table-n td-values">
-                            0
+                            {{ utility.ReturnFixed(product.qty * product.unitPrice) }} лв.
                         </td>
 
                     </tr>
@@ -87,17 +87,17 @@
                     <tr>
                         <td colSpan='5'></td>
                         <td class="table-n">Субтотал</td>
-                        <td class="table-n"></td>
+                        <td class="table-n">{{ utility.ReturnTotalWithoutVAT(offerData).toFixed(2) }}</td>
                     </tr>
                     <tr>
                         <td colSpan='5'></td>
                         <td class="table-n">ДДС 20%</td>
-                        <td class="table-n"></td>
+                        <td class="table-n">{{ (utility.ReturnTotalWithoutVAT(offerData) * 0.2).toFixed(2) }}</td>
                     </tr>
                     <tr>
                         <td colSpan='5'></td>
                         <td class="table-n">Общо ДДС</td>
-                        <td class="table-n"></td>
+                        <td class="table-n">{{utility.ReturnTotalWithVAT(offerData).toFixed(2)}}</td>
                     </tr>
                 </tbody>
             </table>

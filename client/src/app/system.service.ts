@@ -67,6 +67,8 @@ export class SystemService {
 
     // OFFERS REQUESTS
     GetOffers() { return this.http.get(this.offersBaseUrl) };
+    GetOneOffer(offerId) { return this.http.get(`${this.offersBaseUrl}/${offerId}`) };
     CreateOffer(offerData) { return this.http.post(this.offersBaseUrl, offerData) };
+    EditOffer(offerId, offerData) { return this.http.put(`${this.offersBaseUrl}/${offerId}`, offerData) };
     DeleteOffer(offerId) { return this.http.delete(`${this.offersBaseUrl}/${offerId}/delete`) };
 }
