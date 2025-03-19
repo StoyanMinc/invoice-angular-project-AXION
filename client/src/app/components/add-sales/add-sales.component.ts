@@ -82,7 +82,7 @@ export class AddSalesComponent {
     CheckForNewRow(product, idx) {
         if (idx == this.invoiceData.products.length - 1) {
             if (product.name.length > 0 || product.unitPrice > 0 || product.qty > 0) {
-                this.invoiceData.products.push({ name: "", qty: 0, unitPrice: 0.00, unit: 'бр.', discount: 0 });
+                this.invoiceData.products.push({ name: "", qty: 0, unitPrice: 0.00, measure: 'бр.', discount: 0 });
             }
         }
     }

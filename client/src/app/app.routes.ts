@@ -12,6 +12,8 @@ import { AutomaticInvoicesComponent } from './components/automatic-invoices/auto
 import { AddAutomaticInvoiceComponent } from './components/add-automatic-invoice/add-automatic-invoice.component.js';
 import { EditAutomaticInvoiceComponent } from './components/edit-automatic-invoice/edit-automatic-invoice.component.js';
 import { OffersComponent } from './components/offers/offers.component.js';
+import { AddOfferComponent } from './components/add-offer/add-offer.component.js';
+import { EditOfferComponent } from './components/edit-offer/edit-offer.component.js';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: "full" },
@@ -25,9 +27,9 @@ export const routes: Routes = [
     { path: 'documents/expenses/:invoiceId/edit', component: EditIncomingInvoiceComponent },
     { path: 'documents/sales/:invoiceId/print-invoice', component: PrintInvoiceComponent },
     { path: 'documents/automatic-invoices', component: AutomaticInvoicesComponent },
-    {path: 'documents/automatic-invoices/add-invoice', component: AddAutomaticInvoiceComponent},
-    {path: 'documents/automatic-invoices/:invoiceId/edit', component: EditAutomaticInvoiceComponent},
-    {path: 'documents/offers', component: OffersComponent},
-
-
+    { path: 'documents/automatic-invoices/add-invoice', component: AddAutomaticInvoiceComponent },
+    { path: 'documents/automatic-invoices/:invoiceId/edit', component: EditAutomaticInvoiceComponent },
+    { path: 'documents/offers', component: OffersComponent },
+    { path: 'documents/offers/add-offer', component: AddOfferComponent },
+    { path: 'documents/offers/:offerId/edit', component: EditOfferComponent }
 ];

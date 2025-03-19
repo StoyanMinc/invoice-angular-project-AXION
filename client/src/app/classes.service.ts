@@ -128,3 +128,26 @@ export class AutomaticInvoice {
         this.products = products_list;
     };
 }
+
+export class Offer {
+    client: any;
+    mol: any;
+    offerType: any;
+    offerDate: any;
+    title: any;
+    products: any = [];
+
+
+    constructor(client, mol, offerType, offerDate, title, products) {
+        this.client = client;
+        this.mol = mol;
+        this.offerType = offerType;
+        this.offerDate = offerDate;
+        this.title = title;
+        let products_list: any = [];
+        for (var pi = 0; pi < products.length; pi++) {
+            products_list.push(new Product(products[pi].name, products[pi].qty, products[pi].measure, products[pi].unitPrice, products[pi].to));
+        };
+        this.products = products_list;
+    }
+}
