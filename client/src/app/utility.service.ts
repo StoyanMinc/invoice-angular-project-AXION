@@ -40,7 +40,7 @@ export class UtilityService {
         let year = String(date.getFullYear());
 
         return `${day}.${month}.${year}`;
-    }
+    };
 
     CalculateExpireDate(date, paymentTerm) {
 
@@ -56,5 +56,22 @@ export class UtilityService {
         const date = new Date();
         const todaysDate = date.toLocaleDateString('en-GB').replace(/\//g, '.');
         return todaysDate;
+    };
+
+    generateOptions() {
+        const options: string[] = [];
+        for (let day = 1; day <= 31; day++) {
+            if (day === 1 || day === 21 || day === 31) {
+                options.push(day + '-ви');
+            } else if (day === 2 || day === 22) {
+                options.push(day + '-ри')
+            } else if (day === 7 || day === 8 || day === 27 || day === 28) {
+                options.push(day + '-ми')
+            } else {
+                options.push(day + '-ти')
+            }
+        }
+    
+        return options;
     }
 }
