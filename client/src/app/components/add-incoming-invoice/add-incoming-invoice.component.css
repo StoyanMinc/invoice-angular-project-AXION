@@ -60,8 +60,8 @@
     float: left;
     background-color: #F9FBFA;
     text-align: right;
-    width: 100%;
-    padding: 10px 0;
+    width: calc(100% - 40px);
+    padding: 10px 20px
 }
 
 .add-invoice-footer .action-button,
@@ -80,10 +80,6 @@
 .add-invoice-footer .action-button {
     background-color: rgb(122, 206, 245);
     color: white;
-}
-
-.add-invoice-btn {
-    margin-right: 20px;
 }
 
 .file-title {

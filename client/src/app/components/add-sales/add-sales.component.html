@@ -83,7 +83,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let product of invoiceData.products; let i = index">
-                        <td class="table-n">{{ i + 1 }}</td>
+                        <td class="table-n table-n-number" (click)="RemoveRow(i)">{{ i + 1 }}</td>
                         <td class="long-table-td">
                             <input type="text" [(ngModel)]="product.name" (keyup)="CheckForNewRow(product, i)" />
                         </td>

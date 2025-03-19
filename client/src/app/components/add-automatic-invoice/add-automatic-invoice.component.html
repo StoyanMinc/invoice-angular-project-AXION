@@ -1,0 +1,110 @@
+<div class="add-automatic-invoice-container">
+    <div class="add-automatic-invoice">
+        <h3>Добавяне на автоматична фактура</h3>
+        <div class="first-row">
+            <div class="input-container col-3">
+                <label for="client">Клиент</label>
+                <select class="invoice-input" name="client" id="client" [(ngModel)]="automaticInvoiceData.client" (change)="SelectedClient()">
+                    <option *ngFor="let client of clients" [value]="client._id">{{client.nameOfClient}}</option>
+                </select>
+            </div>
+            <div class="input-container col-3">
+                <label for="mol">Мол</label>
+                <input class="invoice-input" type="text" name="mol" id="mol" [(ngModel)]="automaticInvoiceData.mol">
+            </div>
+            <div class="input-container col-3">
+                <label for="dateOfAutomatization">Месечна дата на автоматизация</label>
+                <select class="invoice-input" name="dateOfAutomatization" id="dateOfAutomatization" [(ngModel)]="automaticInvoiceData.dateOfAutomatization">
+                    <!-- <option value="15">15 дни</option>
+                    <option value="30">30 дни</option> -->
+                    <option *ngFor="let option of utility.generateOptions(); let i = index" [value]="i + 1">{{option}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="second-row">
+            <div class="input-container col-3">
+                <label for="paymentTerm">Срок на плащане</label>
+                <select class="invoice-input" name="paymentTerm" id="paymentTerm" [(ngModel)]="automaticInvoiceData.paymentTerm">
+                    <option value="15">15 дни</option>
+                    <option value="30">30 дни</option>
+                </select>
+            </div>
+            <div class="input-container col-3">
+                <label for="paymentType">Начин на плащане</label>
+                <select class="invoice-input" name="paymentType" id="paymentType" [(ngModel)]="automaticInvoiceData.paymentType">
+                    <option value="В брой">В брой</option>
+                    <option value="Банков превод">Банков превод</option>
+                </select>
+            </div>
+            <div *ngIf="automaticInvoiceData.paymentType === 'Банков превод'" class="input-container col-3">
+                <label for="bankChoise">Избор на банка</label>
+                <select class="invoice-input" name="bankChoise" id="bankChoise" [(ngModel)]="automaticInvoiceData.bankChoise">
+                    <option value="ДСК">ДСК</option>
+                    <option value="ОББ">ОББ</option>
+                    <option value="УниКредит">УниКредит</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="add-invoice-table-container">
+            <table class="add-invoice-table">
+                <thead>
+                    <tr>
+                        <th class="table-n td-n">N</th>
+                        <th>Описание на стока/услуга</th>
+                        <th>Временен</th>
+                        <th>Мярка</th>
+                        <th>К-во</th>
+                        <th>Ед.цена</th>
+                        <th class="table-n">Стойност</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                        <tr *ngFor="let product of automaticInvoiceData.products; let i = index">
+                            <td class="table-n">1</td>
+                            <td class="long-table-td">
+                                <input type="text" [(ngModel)]="product.name" (keyup)="CheckForNewRow(product, i)" />
+                            </td>
+                            <td class="short-table-td"><input type="checkbox" class="checkbox-input"></td>
+                            <td class="middle-table-td">
+                                <select name="count" [(ngModel)]="product.measure">
+                                    <option value="count">бр</option>
+                                    <option value="hh">ч.ч</option>
+                                </select>
+                            </td>
+                            <td class="short-table-td">
+                                <input type="number" placeholder="0" [(ngModel)]="product.qty"/>
+                            </td>
+                            <td class="short-table-td">
+                                <input type="number" placeholder="0" [(ngModel)]="product.unitPrice"/>
+                            </td>
+                            <td class="table-n td-values">{{utility.ReturnTotalWithoutVAT(automaticInvoiceData).toFixed(2)}}</td>
+
+                        </tr>
+                    
+                    <tr>
+                        <td colSpan='4'></td>
+                        <td class="table-n" >Субтотал</td>
+                        <td class="table-n">{{utility.ReturnTotalWithoutVAT(automaticInvoiceData).toFixed(2)}}</td>
+                    </tr>
+                    <tr>
+                        <td colSpan='4'></td>
+                        <td class="table-n">ДДС 20%</td>
+                        <td class="table-n">{{ (utility.ReturnTotalWithoutVAT(automaticInvoiceData) * 0.2).toFixed(2) }}</td>
+                    </tr>
+                    <tr>
+                        <td colSpan='4'></td>
+                        <td class="table-n">Общо ДДС</td>
+                        <td class="table-n">{{utility.ReturnTotalWithVAT(automaticInvoiceData).toFixed(2)}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class='add-invoice-footer automatic-invoice-footer'>
+        <button class="button-go-back">Назад</button>
+        <button class="action-button add-invoice-btn" (click)="createAutomaticInvoice()">Добавяне</button>
+    </div>
+</div>
