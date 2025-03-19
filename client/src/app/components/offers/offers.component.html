@@ -1,10 +1,10 @@
 <div class="offers-container">
     <div class="offers-table-container">
         <div class="offers-table-container-header">
-            <h4>Оферти (999)</h4>
+            <h4>Оферти ({{offers.length}})</h4>
             <div class="table-options">
                 <input class="search-invoice" type="text" placeholder="Search...">
-                <button class="add-invoice-btn">Създаване на такса</button>
+                <button class="add-invoice-btn" routerLink="/documents/offers/add-offer">Създаване на такса</button>
             </div>
 
         </div>
@@ -22,16 +22,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>22.03.2025</td>
-                        <td>Някво заглавие</td>
-                        <td>Даикс ЕООД</td>
-                        <td>99.99</td>
-                        <td>Стока</td>
+                    <tr *ngFor="let offer of offers">
+                        <td>{{offer.offerDate}}</td>
+                        <td>{{offer.title}}</td>
+                        <td>{{offer.mol}}</td>
+                        <td>{{offer.totalPrice.toFixed(2)}}лв.</td>
+                        <td>{{offer.offerType}}</td>
                         <td>чака одобрение</td>
                         <td class="expenses-action-td">
-                            <div class="action-icon edit-icon"></div>
-                            <div class="action-icon bin-icon"></div>
+                            <div class="action-icon edit-icon" [routerLink]="['/documents/offers', offer._id, 'edit']"></div>
+                            <div class="action-icon bin-icon" (click)="deleteOffer(offer._id)"></div>
                         </td>
                     </tr>
                 </tbody>
