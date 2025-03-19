@@ -11,6 +11,7 @@ import { PrintInvoiceComponent } from './components/print-invoice/print-invoice.
 import { AutomaticInvoicesComponent } from './components/automatic-invoices/automatic-invoices.component.js';
 import { AddAutomaticInvoiceComponent } from './components/add-automatic-invoice/add-automatic-invoice.component.js';
 import { EditAutomaticInvoiceComponent } from './components/edit-automatic-invoice/edit-automatic-invoice.component.js';
+import { OffersComponent } from './components/offers/offers.component.js';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: "full" },
@@ -26,7 +27,7 @@ export const routes: Routes = [
     { path: 'documents/automatic-invoices', component: AutomaticInvoicesComponent },
     {path: 'documents/automatic-invoices/add-invoice', component: AddAutomaticInvoiceComponent},
     {path: 'documents/automatic-invoices/:invoiceId/edit', component: EditAutomaticInvoiceComponent},
-    
+    {path: 'documents/offers', component: OffersComponent},
 
 
 ];
