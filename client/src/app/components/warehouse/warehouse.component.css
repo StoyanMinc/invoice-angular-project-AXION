@@ -1,4 +1,4 @@
-.sales-page-container {
+.warehose-page-container {
     float: left;
     width: calc(100% - 30px);
     margin-top: 60px;
@@ -6,21 +6,27 @@
     padding: 30px 15px;
 }
 
-.type-document-options {
+.type-warehose-options {
     float: left;
     width: 15%;
     border: 1px solid hsl(0, 4%, 85%);
     background-color: #fff;
 }
 
-.type-document-options h4{
+.type-warehose-options-header {
     float: left;
-    width: calc(100% - 8px);
+    width: 100%;
+}
+
+.type-warehose-options h4{
+    float: left;
     padding-left: 8px;
+    margin: 20px;
 }
 
 
-.type-document-options p {
+
+.type-warehose-options p {
     border-top: 1px solid hsl(0, 4%, 85%);
     line-height: 35px;
     cursor: pointer;
@@ -194,4 +200,103 @@ table thead th {
 
 .action-icon.traffic-icon {
     background-image: url('../../../assets/traffic-signal.svg');
+}
+
+.client-modal-container {
+    float: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.add-client-container {
+    float: left;
+    background: white;
+    width: 50%;
+    height: 70%;
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.add-client-container h4,
+.add-client-container p {
+    float: left;
+    width: 100%;
+    margin: 0;
+}
+
+.add-client-container h4 {
+    margin-bottom: 10px;
+    border-bottom: 1px solid gray;
+}
+
+.add-client-container p {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.add-client-first-row,
+.add-client-second-row,
+.add-client-third-row,
+.add-client-fourth-row,
+.add-client-fifth-row,
+.add-clients-buttons-holder {
+    float: left;
+    width: 100%;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.add-client-input-holder {
+    float: left;
+    height: 40px;
+    margin: 0 5px;
+}
+
+.add-client-input-holder label,
+.add-client-input-holder input,
+.add-client-input-holder select {
+    float: left;
+    width: 100%;
+}
+
+.add-client-input-holder input,
+.add-client-input-holder select {
+    height: 100%;
+}
+
+.add-clients-buttons-holder {
+    padding: 20px 0;
+}
+
+.add-clients-buttons-holder button {
+    float: right;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 8px;
+
+}
+
+.close-modal-button {
+    background-color: #b8b5b5;
+}
+
+.create-client-button {
+    background-color: #05A8F5;
+    color: #fff;
+}
+
+
+.add-warehose {
+    float: right;
+    width: 25px;
+    height: 25px;
+    margin: 15px;
 }

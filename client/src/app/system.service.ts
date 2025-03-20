@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpContext } from '@angular/common/http';
+import { HtmlParser } from '@angular/compiler';
 
 @Injectable({
     providedIn: 'root',
@@ -27,6 +28,13 @@ export class SystemService {
 
     //OFFERS URL'S
     offersBaseUrl = 'http://localhost:5001/offers';
+
+    // PART URL'S
+    partBaseUrl = 'http://localhost:5001/parts';
+
+    // WAREHOUSES URL'S
+    warehouseBaseUrl = 'http://localhost:5001/warehouses';
+
     constructor() {
     }
 
@@ -71,4 +79,14 @@ export class SystemService {
     CreateOffer(offerData) { return this.http.post(this.offersBaseUrl, offerData) };
     EditOffer(offerId, offerData) { return this.http.put(`${this.offersBaseUrl}/${offerId}`, offerData) };
     DeleteOffer(offerId) { return this.http.delete(`${this.offersBaseUrl}/${offerId}/delete`) };
+
+    //PARTS REQUESTS
+    GetParts() { return this.http.get(this.partBaseUrl) };
+    CreatePart(partData) { return this.http.post(this.partBaseUrl, partData) };
+    GetSpecificParts(option) { return this.http.get(`${this.partBaseUrl}/${option}`) };
+    DeletePart(partId) { return this.http.delete(`${this.partBaseUrl}/${partId}`) };
+
+    // WAREHOUSES REQUESTS
+    GetWarehouses() { return this.http.get(this.warehouseBaseUrl) };
+    CreateWarehouse(warehouseData) { return this.http.post(this.warehouseBaseUrl, warehouseData) };
 }

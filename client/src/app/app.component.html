@@ -4,7 +4,7 @@
       <li routerLink="/home" routerLinkActive="active">Начало</li>
       <li routerLink="/documents/sales" [ngClass]="{ 'active':ReturnIsUrlLike('documents') }">Документи</li>
       <li routerLink="/clients" routerLinkActive="active">Контрагенти</li>
-      <li>Склад</li>
+      <li routerLink="/warehouse" routerLinkActive="active">Склад</li>
       <li>Магазин</li>
       <li>Служители</li>
       <li>GPS система</li>
@@ -27,6 +27,14 @@
   <div class="subheader" *ngIf="ReturnUrl() == 'clients'">
     <ul *ngIf=" ReturnUrl() == 'clients'">
       <li class="client-list-item" routerLink="/clients" routerLinkActive="active">Клиенти</li>
+    </ul>
+  </div>
+  
+  <div class="subheader" *ngIf="ReturnUrl() === 'warehouse'">
+    <ul *ngIf=" ReturnUrl() == 'warehouse'">
+      <li >Доставчици</li>
+      <li routerLink="/warehouse" routerLinkActive="active">Складове</li>
+      <li >Производство</li>
     </ul>
   </div>
 

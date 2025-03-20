@@ -14,6 +14,7 @@ import { EditAutomaticInvoiceComponent } from './components/edit-automatic-invoi
 import { OffersComponent } from './components/offers/offers.component.js';
 import { AddOfferComponent } from './components/add-offer/add-offer.component.js';
 import { EditOfferComponent } from './components/edit-offer/edit-offer.component.js';
+import { WarehouseComponent } from './components/warehouse/warehouse.component.js';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: "full" },
@@ -31,5 +32,6 @@ export const routes: Routes = [
     { path: 'documents/automatic-invoices/:invoiceId/edit', component: EditAutomaticInvoiceComponent },
     { path: 'documents/offers', component: OffersComponent },
     { path: 'documents/offers/add-offer', component: AddOfferComponent },
-    { path: 'documents/offers/:offerId/edit', component: EditOfferComponent }
+    { path: 'documents/offers/:offerId/edit', component: EditOfferComponent },
+    {path: 'warehouse', component: WarehouseComponent},
 ];

@@ -1,0 +1,135 @@
+<div class="warehose-page-container">
+    <div class="client-modal-container" *ngIf="isModalOpen">
+        <div class="add-client-container">
+            <h4>Добавяне на артикул</h4>
+            <div class="add-client-first-row">
+                <p>Тип на складов артикул</p>
+
+                <div class="add-client-input-holder col-12">
+                    <label for="storageType">Складов тип</label>
+                    <select name="storageType" id="storageType" [(ngModel)]="partData.storageType">
+                        <option value="реален">Реален</option>
+                        <option value="виртуален">Виртуален</option>
+                    </select>
+                </div>
+           
+            </div>
+            <div class="add-client-second-row">
+                <p>Основна информация</p>
+
+                <div class="add-client-input-holder col-3">
+                    <label For="name">Име на артикул</label>
+                    <input type="text" name="name" id="name" [(ngModel)]="partData.name"/>
+                </div>
+
+                <div class="add-client-input-holder col-4">
+                    <label For="number">Артикулен номер</label>
+                    <input type="number" name="number" id="number" [(ngModel)]="partData.number"/>
+                </div>
+
+                <div class="add-client-input-holder col-4">
+                    <label for="partType">Тип артикул</label>
+                    <select name="subType" id="subType" [(ngModel)]="partData.subType">
+                        <option value="части">Части</option>
+                        <option value="стоки">Стоки</option>
+                    </select>
+                </div>
+            </div>
+         
+            <div class="add-client-second-row">
+                <div class="add-client-input-holder col-3">
+                    <label For="priceIn">Входна цена</label>
+                    <input type="number" name="priceIn" id="priceIn" [(ngModel)]="partData.priceIn"/>
+                </div>
+                <div class="add-client-input-holder col-3">
+                    <label For="priceOut">Изходна цена</label>
+                    <input type="number" name="priceOut" id="priceOut" [(ngModel)]="partData.priceOut"/>
+                </div>
+                <div class="add-client-input-holder col-3">
+                    <label For="qty">Количество</label>
+                    <input type="number" name="qty" id="qty" [(ngModel)]="partData.qty"/>
+                </div>
+            </div>
+
+            <div class="add-clients-buttons-holder">
+                <button *ngIf="isModalOpen" class="create-client-button" (click)="createPart()" >Запис</button>
+                <button class="close-modal-button" (click)="closeModal()">Отказ</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="client-modal-container" *ngIf="isAddWareHoseModalOpen">
+        <div class="add-client-container">
+            <h4>Добавяне на Склад</h4>
+            <div class="add-client-first-row">
+                <p>Тип на складов артикул</p>
+
+                <div class="add-client-input-holder col-11">
+                    <label For="name">Име на Склад</label>
+                    <input type="text" name="name" id="name" [(ngModel)]="warehouseData.name"/>
+                </div>
+           
+            </div>
+            <div class="add-clients-buttons-holder">
+                <button class="create-client-button" (click)="createWarehouse()">Запис</button>
+                <button class="close-modal-button" (click)="closeModal()">Отказ</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="type-warehose-options">
+        <div class="type-warehose-options-header">
+            <h4>Складове</h4>
+            <button class="add-invoice-btn add-warehose" (click)="openWarehoseModal()"></button>
+        </div>
+        <ul class="sales-option">
+            <li *ngFor="let warehose of warehouses" [ngClass]="{'selected': selectedOption === warehose._id}" (click)="selectOption(warehose._id)">
+                {{warehose.name}}
+            </li>
+        </ul>
+
+    </div>
+    <div class=" invoice-table-container">
+        <div class="invoice-table-container-header">
+            <h4>Склад - Axion Офис</h4>
+            <div class="table-options">
+                <input class="search-invoice" type="text" placeholder="Search...">
+                <button class="add-invoice-btn" (click)="openModal()">
+                    Добавяне на артикул
+                </button>
+                
+            </div>
+
+        </div>
+        <div class="invoice-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Артикулен номер</th>
+                        <th>Име на компонент</th>
+                        <th>Наличност</th>
+                        <th>Складов тип</th>
+                        <th>Тип</th>
+                        <th>Позиция</th>
+                        <th>Действие</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let part of parts">
+                        <td>{{part.number}}</td>
+                        <td>{{part.name}}</td>
+                        <td>{{part.qty}} бр.</td>
+                        <td>{{part.storageType}}</td>
+                        <td>{{part.subType}}</td>
+                        <td>Това е трудно, Пламка :)</td>
+                        <td>
+                            <div class="action-icon print-icon"></div>
+                            <div class="action-icon edit-icon"></div>
+                            <div class="action-icon bin-icon" (click)="deletePart(part._id)"></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
