@@ -157,6 +157,7 @@ table thead th {
     left: 25%;
     border-radius: 10px;
     padding: 10px;
+    z-index: 999;
 }
 
 .add-client-container h4,

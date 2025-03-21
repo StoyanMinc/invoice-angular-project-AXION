@@ -82,8 +82,10 @@ export class SystemService {
 
     //PARTS REQUESTS
     GetParts() { return this.http.get(this.partBaseUrl) };
+    GetSpecificParts(option) { return this.http.get(`${this.partBaseUrl}/${option}/storage`) };
+    GetOnePart(partId) { return this.http.get(`${this.partBaseUrl}/${partId}`) };
     CreatePart(partData) { return this.http.post(this.partBaseUrl, partData) };
-    GetSpecificParts(option) { return this.http.get(`${this.partBaseUrl}/${option}`) };
+    EditPart(partId, partData) { return this.http.put(`${this.partBaseUrl}/${partId}`, partData) };
     DeletePart(partId) { return this.http.delete(`${this.partBaseUrl}/${partId}`) };
 
     // WAREHOUSES REQUESTS

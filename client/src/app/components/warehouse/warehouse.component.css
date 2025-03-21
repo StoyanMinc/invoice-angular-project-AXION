@@ -170,36 +170,16 @@ table thead th {
     cursor: pointer;
 }
 
+.action-icon.database-icon {
+    background-image: url('../../../assets/database.svg');
+}
+
 .action-icon.edit-icon {
     background-image: url('../../../assets/pen.svg');
 }
 
-.action-icon.print-icon {
-    background-image: url('../../../assets/printing.svg');
-}
-
-.action-icon.dollars-bag-icon{
-    background-image: url('../../../assets/money.svg');
-}
-
-.action-icon.files-icon {
-    background-image: url('../../../assets/file.svg');
-}
-
-.action-icon.message-icon {
-    background-image: url('../../../assets/comment.svg');
-}
-
 .action-icon.bin-icon {
     background-image: url('../../../assets/trash-bin.svg');
-}
-
-.action-icon.tick-icon {
-    background-image: url('../../../assets/tick.svg');
-}
-
-.action-icon.traffic-icon {
-    background-image: url('../../../assets/traffic-signal.svg');
 }
 
 .client-modal-container {
